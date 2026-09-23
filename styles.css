@@ -11,9 +11,36 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:22px;fl
 .cart-backdrop{position:fixed;inset:0;background:#0009;z-index:20}.cart-panel{position:fixed;z-index:21;right:0;top:0;width:min(440px,100%);height:100dvh;background:var(--paper);color:var(--ink);padding:26px;display:flex;flex-direction:column;transform:translateX(105%);visibility:hidden;transition:transform .28s,visibility .28s}.cart-panel.is-open{transform:translateX(0);visibility:visible}.cart-head{display:flex;justify-content:space-between;border-bottom:1px solid #d1d2d4;padding-bottom:20px}.cart-head h2{font-size:23px;font-weight:400;margin:0}.cart-head .eyebrow{color:#777a81}.close-cart{font-size:30px;background:none;border:0;color:var(--ink)}.cart-items{overflow:auto;flex:1;padding:15px 0}.empty-cart{color:#777a81;font-size:13px}.cart-item{display:grid;grid-template-columns:76px 1fr auto;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid #d1d2d4;font-size:13px}.cart-item img{width:76px;height:80px;object-fit:contain;background:#e5e5e6}.cart-item small{display:block;color:#777a81;margin-top:5px}.remove-item{background:none;border:0;text-decoration:underline;font-size:11px}.cart-bottom{border-top:1px solid #d1d2d4;padding-top:18px}.cart-total{display:flex;justify-content:space-between;margin-bottom:18px}.cart-bottom .solid-button{width:100%}.checkout-note{font-size:11px;color:#777a81;line-height:1.6}.toast{position:fixed;z-index:30;bottom:24px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--paper);color:var(--ink);padding:12px 20px;font-size:12px;transition:.2s}.toast.show{opacity:1;transform:translate(-50%,0)}body.cart-open{overflow:hidden}
 @media(max-width:650px){.site-header{height:64px;padding:0 16px}.wordmark{font-size:18px}.main-nav{gap:10px;font-size:9px;letter-spacing:.04em}.cart-trigger{padding:7px;gap:5px}.hero{height:590px;min-height:0;max-height:76vh}.hero-model{object-position:58% center}.hero-copy{left:24px;right:18px;top:60%;transform:translateY(-35%)}.hero h1{font-size:clamp(34px,9vw,48px)}.hero h1 span{margin-left:35px}.manifesto{padding:22px 12px}.manifesto h2{font-size:14px}.collection{padding:40px 14px 25px}.section-heading h2{font-size:24px}.color-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.color-name{font-size:11px}.product-section{grid-template-columns:1fr;gap:22px;padding:28px 16px}.product-image-wrap{min-height:260px;max-height:380px}.about-section{grid-template-columns:1fr}.about-image{min-height:280px;height:65vw;max-height:430px}.about-copy{padding:32px 22px 42px}.journal-section{padding:48px 20px}footer{justify-content:center;text-align:center;padding:22px 14px}footer .footer-wordmark{width:100%}.footer-links{gap:12px}.cart-panel{padding:22px}.cart-item{grid-template-columns:62px 1fr auto}.cart-item img{width:62px;height:70px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
-/* NEVRA — requested hero copy position adjustment only.
-   Append this block to the END of styles.css.
-   It moves the heading and SHOP NOW button down without changing other elements. */
+
+/* NEVRA hero correction: hide navigation text embedded in the campaign photo
+   and move the live hero copy lower. All other sections remain untouched. */
+.hero-shade::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 112px;
+  background: linear-gradient(
+    to bottom,
+    rgba(17, 19, 24, .98) 0%,
+    rgba(17, 19, 24, .94) 48%,
+    rgba(17, 19, 24, .72) 76%,
+    rgba(17, 19, 24, 0) 100%
+  );
+  pointer-events: none;
+}
+
 .hero-copy {
-  top: calc(50% + 100px) !important;
+  top: 66% !important;
+  transform: translateY(-12%) !important;
+}
+
+@media (max-width: 650px) {
+  .hero-shade::before {
+    height: 92px;
+  }
+
+  .hero-copy {
+    top: 72% !important;
+    transform: translateY(-12%) !important;
+  }
 }
