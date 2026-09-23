@@ -1,0 +1,15 @@
+(() => {
+const $=s=>document.querySelector(s), cards=[...document.querySelectorAll('.color-card')], sizes=[...document.querySelectorAll('.size-option')], cart=[];
+let color='Black',filter='none',size='';
+const image=c=>c==='Khaki'?'assets/shirt-khaki.jpg':'assets/shirt-black.jpg';
+const money=n=>'₴'+n.toLocaleString('uk-UA');
+function toast(text){const el=$('#toast');el.textContent=text;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2100)}
+function pick(card){color=card.dataset.color;filter=card.dataset.filter;cards.forEach(c=>c.classList.toggle('selected',c===card));$('#product-title').textContent=color+' T-shirt';const img=$('#product-image');img.src=image(color);img.alt=color+' NEVRA T-shirt';img.style.filter=filter==='white'?'brightness(1.7) grayscale(1)':filter==='grey'?'grayscale(1) brightness(1.3)':filter==='khaki'?'sepia(.45) hue-rotate(25deg) saturate(.75)':'none';$('#selection-message').textContent=size?'Size '+size+' selected.':'Select a size to continue.'}
+cards.forEach(c=>c.addEventListener('click',()=>{pick(c);$('#product').scrollIntoView({behavior:'smooth',block:'start'})}));
+sizes.forEach(b=>b.addEventListener('click',()=>{size=b.dataset.size;sizes.forEach(x=>x.setAttribute('aria-pressed',String(x===b)));$('#selection-message').textContent='Size '+size+' selected.'}));
+function render(){const count=cart.reduce((a,x)=>a+x.qty,0),sum=cart.reduce((a,x)=>a+x.qty*1200,0);$('#cart-count').textContent=count;$('#cart-heading-count').textContent='('+count+')';$('#cart-total').textContent=money(sum);$('#cart-items').innerHTML=cart.length?cart.map((x,i)=>`<article class="cart-item"><img src="${image(x.color)}" alt="${x.color} NEVRA T-shirt"><div><strong>${x.color} T-shirt</strong><small>Size ${x.size} · ${money(1200)} × ${x.qty}</small></div><button class="remove-item" data-remove="${i}">Remove</button></article>`).join(''):'<p class="empty-cart">Your cart is empty.</p>';document.querySelectorAll('[data-remove]').forEach(b=>b.addEventListener('click',()=>{cart.splice(+b.dataset.remove,1);render()}))}
+function open(){ $('#cart-panel').classList.add('is-open');$('#cart-panel').setAttribute('aria-hidden','false');$('#cart-backdrop').hidden=false;document.body.classList.add('cart-open')}
+function close(){ $('#cart-panel').classList.remove('is-open');$('#cart-panel').setAttribute('aria-hidden','true');$('#cart-backdrop').hidden=true;document.body.classList.remove('cart-open')}
+$('#add-to-cart').addEventListener('click',()=>{if(!size){$('#selection-message').textContent='Please select a size first.';sizes[0].focus();return}const found=cart.find(x=>x.color===color&&x.size===size);found?found.qty++:cart.push({color,size,qty:1});render();toast(color+' T-shirt added to cart.')});
+$('#cart-open').addEventListener('click',open);$('#cart-close').addEventListener('click',close);$('#cart-backdrop').addEventListener('click',close);document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#cart-panel').classList.contains('is-open'))close()});$('#checkout-button').addEventListener('click',()=>toast(cart.length?'Checkout is not connected yet.':'Your cart is empty.'));render();
+})();
