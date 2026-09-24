@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111318">
+  <meta name="description" content="Відстеження замовлення NEVRA.">
+  <title>NEVRA — Відстеження посилки</title>
+  <link rel="stylesheet" href="./styles.css">
+  <style>
+    .tracking-main{min-height:78vh;background:var(--paper);color:var(--ink);padding:132px 18px 80px}
+    .tracking-wrap{max-width:760px;margin:0 auto}
+    .tracking-head{text-align:center;margin-bottom:38px}
+    .tracking-head .eyebrow{color:#777a81}
+    .tracking-head h1{font:400 clamp(36px,6vw,60px)/1.08 var(--serif);margin:12px 0 16px}
+    .tracking-head p:last-child{color:#777a81;line-height:1.7}
+    .tracking-card{background:#fafafa;border:1px solid #d1d2d4;padding:clamp(22px,5vw,42px)}
+    .tracking-form{display:grid;gap:17px}
+    .tracking-form label{display:grid;gap:8px;color:#666970;font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+    .tracking-form input{height:50px;width:100%;border:1px solid #c7c8ca;background:#fff;padding:0 14px;color:var(--ink);font:400 14px var(--sans);outline:none}
+    .tracking-form input:focus{border-color:#17191e}
+    .tracking-form .solid-button{width:100%;min-height:52px;margin-top:5px}
+    .tracking-result{display:none;margin-top:25px;border-top:1px solid #d1d2d4;padding-top:23px}
+    .tracking-result.show{display:block}
+    .tracking-result h2{font:400 26px var(--serif);margin:0 0 10px}
+    .tracking-result p{font-size:13px;color:#666970;line-height:1.7}
+    .tracking-note{margin-top:20px;font-size:11px;color:#777a81;line-height:1.6}
+    @media(max-width:520px){.tracking-main{padding:100px 14px 50px}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="wordmark" href="./index.html">NEVRA</a>
+    <nav class="main-nav" aria-label="Main navigation"><a href="./index.html#shop">Shop</a><a href="./about.html">About</a><a href="./index.html#journal">Journal</a><a href="./index.html#contact">Contact</a></nav>
+    <a class="cart-trigger" href="./index.html#shop" aria-label="Back to shop"><span class="bag-icon" aria-hidden="true"></span><span class="bag-label">Shop</span></a>
+  </header>
+  <main class="tracking-main">
+    <div class="tracking-wrap">
+      <div class="tracking-head">
+        <p class="eyebrow">NEVRA / ORDER TRACKING</p>
+        <h1>Відстеження посилки</h1>
+        <p>Введіть номер замовлення та email, використаний під час оформлення.</p>
+      </div>
+      <section class="tracking-card" aria-label="Форма відстеження замовлення">
+        <form class="tracking-form" id="tracking-form">
+          <label>Номер замовлення<input name="order" required autocomplete="off" placeholder="Наприклад, NV-2026-001"></label>
+          <label>Email<input name="email" required type="email" autocomplete="email" placeholder="you@example.com"></label>
+          <button class="solid-button" type="submit">ВІДСТЕЖИТИ ЗАМОВЛЕННЯ</button>
+        </form>
+        <div class="tracking-result" id="tracking-result" role="status" aria-live="polite">
+          <h2>Відстеження ще не підключено</h2>
+          <p id="tracking-message">Сторінка працює, але перевірка фактичного статусу потребує підключення бази замовлень і API служби доставки. Зараз статус посилки не може бути підтверджений.</p>
+        </div>
+        <p class="tracking-note">Після підключення служби доставки тут відображатимуться актуальний статус, історія переміщень і орієнтовна дата доставки.</p>
+      </section>
+    </div>
+  </main>
+  <footer><a class="footer-wordmark" href="./index.html">NEVRA</a><div class="footer-links"><a href="./index.html#shop">Shop</a><a href="./about.html">About</a><a href="./index.html#journal">Journal</a><a href="./tracking.html">Відстежити посилку</a><a href="mailto:info@nevra.com">Contact</a></div><a href="mailto:info@nevra.com">info@nevra.com</a><span>© 2026 NEVRA</span></footer>
+  <script>
+    document.querySelector('#tracking-form').addEventListener('submit', event => {
+      event.preventDefault();
+      const data = new FormData(event.currentTarget);
+      const order = String(data.get('order')).trim();
+      document.querySelector('#tracking-message').textContent = `Замовлення ${order} прийнято для перевірки. Для отримання реального статусу потрібно підключити систему замовлень та API перевізника.`;
+      document.querySelector('#tracking-result').classList.add('show');
+    });
+  </script>
+</body>
+</html>
