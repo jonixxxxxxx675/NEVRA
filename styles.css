@@ -151,3 +151,36 @@ body.cart-open{overflow:hidden}
   .cart-panel{padding:20px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+
+
+/* Clean hero artwork: keep site controls, avoid duplicating artwork text/logo. */
+.site-header .wordmark,
+.hero-copy .eyebrow,
+.hero-copy h1,
+.hero-shade{display:none}
+.hero{
+  height:auto;
+  min-height:0;
+  max-height:none;
+  aspect-ratio:1536 / 909;
+}
+.hero-model{
+  object-fit:fill;
+  object-position:center;
+}
+.hero-copy{
+  left:clamp(28px,5vw,76px);
+  top:72%;
+  transform:translateY(-50%);
+  max-width:none;
+}
+@media(max-width:800px){
+  .hero{height:auto;min-height:0;max-height:none;aspect-ratio:1536 / 909}
+  .hero-model{object-fit:fill;object-position:center}
+  .hero-copy{
+    left:clamp(12px,4vw,28px);
+    top:78%;
+    transform:translateY(-50%);
+  }
+  .outline-button{min-height:30px;padding:0 12px;font-size:8px}
+}
