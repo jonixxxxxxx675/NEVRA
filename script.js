@@ -32,8 +32,7 @@
   }
 
   cards.forEach((card) => card.addEventListener('click', () => {
-    pick(card);
-    $('#product').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    window.location.href = './product.html?color=' + encodeURIComponent(card.dataset.color);
   }));
 
   sizes.forEach((button) => button.addEventListener('click', () => {
