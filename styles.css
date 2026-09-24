@@ -180,3 +180,62 @@ body.cart-open{overflow:hidden}
   .about-copy{padding:30px 22px 36px}
   .about-copy h2{font-size:clamp(27px,7vw,36px)}
 }
+
+
+/* Final responsive fixes */
+@media (max-width: 480px) {
+  .hero-copy {
+    left: 16px;
+    right: 16px;
+    width: auto;
+    max-width: none;
+  }
+  .hero h1 {
+    max-width: 100%;
+    font-size: clamp(21px, 5.8vw, 29px);
+    line-height: 1.18;
+    letter-spacing: -0.025em;
+  }
+  .hero h1 span {
+    margin-left: 0;
+  }
+  .cart-trigger {
+    box-sizing: border-box;
+    height: 34px;
+    min-height: 34px;
+    width: 36px;
+    padding: 0;
+    gap: 0;
+    flex: 0 0 36px;
+    display: grid;
+    place-items: center;
+    position: relative;
+    line-height: 1;
+  }
+  .bag-icon {
+    margin: 0;
+    width: 13px;
+    height: 12px;
+    align-self: center;
+  }
+  .bag-icon:before {
+    left: 2px;
+    top: -6px;
+  }
+  .cart-count {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    min-width: 17px;
+    height: 17px;
+    padding: 0 4px;
+  }
+}
+@media (min-width: 481px) and (max-width: 800px) {
+  .hero-copy {
+    max-width: 60%;
+  }
+  .hero h1 span {
+    margin-left: 0;
+  }
+}
