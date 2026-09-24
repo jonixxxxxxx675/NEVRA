@@ -4,72 +4,64 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#111318">
-  <meta name="description" content="NEVRA / Core Collection — product details.">
   <title>NEVRA — Product</title>
   <link rel="stylesheet" href="./styles.css">
-  <script src="./product-page.js" defer></script>
+  <style>
+    .product-page-main{background:var(--paper);color:var(--ink);padding:122px clamp(18px,5.5vw,80px) 70px;min-height:78vh}
+    .product-detail{max-width:1200px;margin:auto;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);gap:55px;align-items:center}
+    .product-gallery{background:#e7e7e8;overflow:hidden}.product-gallery img{width:100%;aspect-ratio:1/1;object-fit:contain}
+    .product-detail-info .eyebrow{color:#777a81}.product-detail-info h1{font:400 clamp(30px,4vw,50px)/1.1 var(--serif);margin:0 0 8px}.product-detail-price{font-size:16px;margin:0 0 18px}.product-detail-description{color:#666970;line-height:1.7;max-width:500px}
+    .product-control-label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#666970;margin:20px 0 8px}
+    .product-color-options,.product-size-options{display:flex;gap:8px;flex-wrap:wrap}.product-color-option,.product-size-option{min-width:48px;height:38px;border:1px solid #c6c7ca;background:transparent;color:var(--ink)}.product-color-option[aria-pressed=true],.product-size-option[aria-pressed=true]{background:var(--ink);color:white;border-color:var(--ink)}
+    .quantity-control{display:inline-grid;grid-template-columns:38px 48px 38px;border:1px solid #c6c7ca}.quantity-control button,.quantity-control output{height:38px;border:0;background:transparent;display:grid;place-items:center;color:var(--ink)}.quantity-control button{cursor:pointer}
+    .product-add-button{margin-top:16px}.product-details-accordions{margin-top:24px;border-top:1px solid #d1d2d4}.product-details-accordions details{border-bottom:1px solid #d1d2d4}.product-details-accordions summary{padding:12px 0;cursor:pointer;font-size:12px;list-style:none}.product-details-accordions summary::-webkit-details-marker{display:none}.product-details-accordions summary:after{content:'+';float:right}.product-details-accordions details[open] summary:after{content:'−'}.product-details-accordions p{color:#666970;line-height:1.6;font-size:12px}
+    @media(max-width:800px){.product-detail{grid-template-columns:1fr;gap:28px}.product-page-main{padding:92px 14px 46px}}
+  </style>
 </head>
 <body>
   <header class="site-header">
-    <a class="wordmark" href="./index.html" aria-label="NEVRA home">NEVRA</a>
-    <nav class="main-nav" aria-label="Main navigation">
-      <a href="./index.html#shop">Shop</a><a href="./about.html">About</a><a href="./index.html#journal">Journal</a><a href="./index.html#contact">Contact</a>
-    </nav>
+    <a class="wordmark" href="./index.html">NEVRA</a>
+    <nav class="main-nav" aria-label="Main navigation"><a href="./index.html#shop">Shop</a><a href="./about.html">About</a><a href="./index.html#journal">Journal</a><a href="./index.html#contact">Contact</a></nav>
     <button class="cart-trigger" id="cart-open" type="button" aria-label="Open shopping bag"><span class="bag-icon" aria-hidden="true"></span><span class="bag-label">Bag</span><span class="cart-count" id="cart-count">0</span></button>
   </header>
-
   <main class="product-page-main">
-    <section class="product-detail" aria-label="Product details">
-      <div class="product-gallery"><img id="detail-image" src="./assets/shirt-black.jpg" alt="Black NEVRA logo T-shirt"></div>
+    <section class="product-detail">
+      <div class="product-gallery"><img id="detail-image" src="./assets/shirt-black.jpg" alt="Black NEVRA T-shirt"></div>
       <div class="product-detail-info">
         <p class="eyebrow">NEVRA / CORE COLLECTION</p>
         <h1 id="detail-title">Black T-shirt</h1>
         <p class="product-detail-price">₴1,200</p>
         <p class="product-detail-description">A considered everyday essential. Clean lines, restrained branding, and a focus on identity.</p>
-
         <span class="product-control-label">Color — <span id="current-color">Black</span></span>
-        <div class="product-color-options" aria-label="Choose color">
+        <div class="product-color-options">
           <button class="product-color-option" type="button" data-color="Black" aria-pressed="true">Black</button>
           <button class="product-color-option" type="button" data-color="White" aria-pressed="false">White</button>
           <button class="product-color-option" type="button" data-color="Grey" aria-pressed="false">Grey</button>
           <button class="product-color-option" type="button" data-color="Khaki" aria-pressed="false">Khaki</button>
         </div>
-
         <span class="product-control-label">Size</span>
-        <div class="product-size-options" aria-label="Choose size">
+        <div class="product-size-options">
           <button class="product-size-option" type="button" data-size="S" aria-pressed="false">S</button>
           <button class="product-size-option" type="button" data-size="M" aria-pressed="false">M</button>
           <button class="product-size-option" type="button" data-size="L" aria-pressed="false">L</button>
           <button class="product-size-option" type="button" data-size="XL" aria-pressed="false">XL</button>
           <button class="product-size-option" type="button" data-size="XXL" aria-pressed="false">XXL</button>
         </div>
-
         <span class="product-control-label">Quantity</span>
-        <div class="quantity-control"><button id="quantity-minus" type="button" aria-label="Decrease quantity">−</button><output id="quantity-value" aria-live="polite">1</output><button id="quantity-plus" type="button" aria-label="Increase quantity">+</button></div>
-        <p class="selection-message" id="detail-message" aria-live="polite">Select a size to continue.</p>
+        <div class="quantity-control"><button id="quantity-minus" type="button">−</button><output id="quantity-value">1</output><button id="quantity-plus" type="button">+</button></div>
+        <p class="selection-message" id="detail-message">Select a size to continue.</p>
         <button class="solid-button product-add-button" id="detail-add" type="button">Add to cart ＋</button>
-
-        <div class="product-details-accordions">
-          <details><summary>Fabric & care</summary><p>Soft-touch cotton jersey. Product composition and care details will be confirmed before launch.</p></details>
-          <details><summary>Fit</summary><p>Relaxed everyday silhouette. Choose your usual size for a standard fit.</p></details>
-          <details><summary>Delivery & returns</summary><p>Delivery options and timing will be shown during checkout. Online payment and returns are not connected yet.</p></details>
-        </div>
       </div>
     </section>
   </main>
-
-  <footer id="contact">
-    <a class="footer-wordmark" href="./index.html">NEVRA</a>
-    <div class="footer-links"><a href="./index.html#shop">Shop</a><a href="./index.html#about">About</a><a href="./index.html#journal">Journal</a><a href="mailto:info@nevra.com">Contact</a></div>
-    <a href="mailto:info@nevra.com">info@nevra.com</a><span>© 2026 NEVRA</span>
-  </footer>
-
+  <footer><a class="footer-wordmark" href="./index.html">NEVRA</a><div class="footer-links"><a href="./index.html#shop">Shop</a><a href="./about.html">About</a><a href="./index.html#journal">Journal</a><a href="mailto:info@nevra.com">Contact</a></div><a href="mailto:info@nevra.com">info@nevra.com</a><span>© 2026 NEVRA</span></footer>
   <div class="cart-backdrop" id="cart-backdrop" hidden></div>
   <aside class="cart-panel" id="cart-panel" aria-label="Shopping cart" aria-hidden="true">
-    <div class="cart-head"><div><p class="eyebrow">YOUR SELECTION</p><h2>Your cart <span id="cart-heading-count">(0)</span></h2></div><button class="close-cart" id="cart-close" type="button" aria-label="Close cart">×</button></div>
+    <div class="cart-head"><div><p class="eyebrow">YOUR SELECTION</p><h2>Your cart <span id="cart-heading-count">(0)</span></h2></div><button class="close-cart" id="cart-close" type="button">×</button></div>
     <div id="cart-items" class="cart-items"><p class="empty-cart">Your cart is empty.</p></div>
-    <div class="cart-bottom"><div class="cart-total"><span>Subtotal</span><strong id="cart-total">₴0</strong></div><button class="solid-button" id="checkout-button" type="button">Continue to checkout</button><p class="checkout-note">Demo cart — checkout and payment are not connected yet.</p></div>
+    <div class="cart-bottom"><div class="cart-total"><span>Subtotal</span><strong id="cart-total">₴0</strong></div><button class="solid-button" id="checkout-button" type="button">Continue to checkout</button></div>
   </aside>
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="toast" id="toast"></div>
+  <script src="./product-page.js" defer></script>
 </body>
 </html>

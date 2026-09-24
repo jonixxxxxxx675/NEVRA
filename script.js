@@ -2,7 +2,8 @@
   const $ = (selector) => document.querySelector(selector);
   const cards = [...document.querySelectorAll('.color-card')];
   const sizes = [...document.querySelectorAll('.size-option')];
-  const cart = [];
+  const storageKey = 'nevra-cart';
+  const cart = JSON.parse(localStorage.getItem(storageKey) || '[]');
   let color = 'Black';
   let filter = 'none';
   let size = '';
@@ -32,7 +33,8 @@
   }
 
   cards.forEach((card) => card.addEventListener('click', () => {
-    window.location.href = './product.html?color=' + encodeURIComponent(card.dataset.color);
+    pick(card);
+    $('#product').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }));
 
   sizes.forEach((button) => button.addEventListener('click', () => {
@@ -55,6 +57,7 @@
         </article>`).join('')
       : '<p class="empty-cart">Your cart is empty.</p>';
 
+    localStorage.setItem(storageKey, JSON.stringify(cart));
     document.querySelectorAll('[data-remove]').forEach((button) => button.addEventListener('click', () => {
       cart.splice(Number(button.dataset.remove), 1);
       renderCart();
@@ -94,6 +97,9 @@
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && $('#cart-panel').classList.contains('is-open')) closeCart();
   });
-  $('#checkout-button').addEventListener('click', () => toast(cart.length ? 'Checkout is not connected yet.' : 'Your cart is empty.'));
+  $('#checkout-button').addEventListener('click', () => {
+    if (!cart.length) { toast('Your cart is empty.'); return; }
+    window.location.href = './checkout.html';
+  });
   renderCart();
 })();

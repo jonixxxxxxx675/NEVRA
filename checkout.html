@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111318"><title>NEVRA — Checkout</title>
+  <link rel="stylesheet" href="./styles.css">
+  <style>
+    .checkout-main{background:var(--paper);color:var(--ink);min-height:78vh;padding:122px clamp(18px,5.5vw,80px) 70px}
+    .checkout-wrap{max-width:1160px;margin:auto;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(300px,.9fr);gap:54px}
+    .checkout-head .eyebrow,.summary-head .eyebrow{color:#777a81}.checkout-head h1{font:400 clamp(34px,4.5vw,56px)/1.1 var(--serif);margin:0 0 12px}.checkout-head>p:last-child{color:#777a81}
+    .checkout-form{display:grid;gap:20px}.checkout-section{border-top:1px solid #d1d2d4;padding-top:20px}.checkout-section h2{font-size:18px;font-weight:500;margin:0 0 17px}
+    .checkout-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.checkout-form label{display:grid;gap:7px;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:#666970}
+    .checkout-form input,.checkout-form select{height:47px;width:100%;border:1px solid #c7c8ca;background:#fafafa;padding:0 12px;color:var(--ink);font:400 13px var(--sans);outline:none}
+    .checkout-form input:focus,.checkout-form select:focus{border-color:#17191e}.payment-note{border:1px solid #c7c8ca;background:#fafafa;padding:15px;color:#666970;font-size:12px;line-height:1.6}.place-order{width:100%;margin-top:15px;min-height:50px}
+    .checkout-summary{border-left:1px solid #d1d2d4;padding-left:30px}.summary-items{display:grid;gap:12px}.summary-item{display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center;padding-bottom:12px;border-bottom:1px solid #d1d2d4}.summary-item img{width:64px;height:68px;object-fit:contain;background:#e6e6e7}.summary-item strong{font-size:12px}.summary-item small{display:block;font-size:10px;color:#777a81;margin-top:4px}.summary-line{display:flex;justify-content:space-between;margin:10px 0;font-size:12px}.summary-line.total{border-top:1px solid #d1d2d4;padding-top:13px;font-size:15px;font-weight:500}
+    .checkout-empty{color:#777a81;font-size:13px}.checkout-success{display:none;text-align:center;border:1px solid #d1d2d4;padding:45px 20px;background:#fafafa}.checkout-success.show{display:block}.checkout-success h2{font:400 30px var(--serif);margin:0 0 10px}.checkout-success p{color:#777a81}
+    @media(max-width:820px){.checkout-wrap{grid-template-columns:1fr}.checkout-summary{border-left:0;border-top:1px solid #d1d2d4;padding:26px 0 0}}
+    @media(max-width:520px){.checkout-main{padding:94px 14px 45px}.checkout-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="wordmark" href="./index.html">NEVRA</a>
+    <nav class="main-nav" aria-label="Main navigation"><a href="./index.html#shop">Shop</a><a href="./about.html">About</a><a href="./index.html#journal">Journal</a><a href="./index.html#contact">Contact</a></nav>
+    <a class="cart-trigger" href="./index.html#shop" aria-label="Back to shop"><span class="bag-icon" aria-hidden="true"></span><span class="bag-label">Shop</span></a>
+  </header>
+  <main class="checkout-main">
+    <div class="checkout-wrap">
+      <section>
+        <div class="checkout-head"><p class="eyebrow">NEVRA / CHECKOUT</p><h1>Оформлення замовлення</h1><p>Вкажіть дані для доставки та підтвердіть замовлення.</p></div>
+        <form class="checkout-form" id="checkout-form">
+          <div class="checkout-section"><h2>Контактні дані</h2>
+            <div class="checkout-grid"><label>Ім'я<input required name="firstName" autocomplete="given-name"></label><label>Прізвище<input required name="lastName" autocomplete="family-name"></label></div>
+            <div class="checkout-grid"><label>Email<input required type="email" name="email" autocomplete="email"></label><label>Телефон<input required type="tel" name="phone" autocomplete="tel"></label></div>
+          </div>
+          <div class="checkout-section"><h2>Доставка</h2>
+            <div class="checkout-grid"><label>Місто<input required name="city" autocomplete="address-level2"></label><label>Область<input name="region" autocomplete="address-level1"></label></div>
+            <div class="checkout-grid"><label>Вулиця<input required name="street" autocomplete="street-address"></label><label>Поштовий індекс<input name="postal" autocomplete="postal-code"></label></div>
+            <label>Спосіб доставки<select required name="delivery"><option value="">Оберіть спосіб</option><option>Нова пошта</option><option>Укрпошта</option><option>Кур'єр</option></select></label>
+          </div>
+          <div class="checkout-section"><h2>Оплата</h2><div class="payment-note"><strong>Онлайн оплата карткою</strong><br>Платіжний сервіс буде підключено окремо.</div><button class="solid-button place-order" type="submit">Place order</button></div>
+        </form>
+        <div class="checkout-success" id="success"><h2>Дякуємо за замовлення.</h2><p>Замовлення сформовано. Реальну оплату можна підключити окремим платіжним сервісом.</p><a class="solid-button" href="./index.html">Back to NEVRA</a></div>
+      </section>
+      <aside class="checkout-summary"><div class="summary-head"><p class="eyebrow">YOUR SELECTION</p><h2>Замовлення</h2></div><div id="summary-items" class="summary-items"></div><div class="summary-line"><span>Subtotal</span><strong id="subtotal">₴0</strong></div><div class="summary-line"><span>Delivery</span><strong>₴0</strong></div><div class="summary-line total"><span>Total</span><strong id="total">₴0</strong></div></aside>
+    </div>
+  </main>
+  <footer><a class="footer-wordmark" href="./index.html">NEVRA</a><div class="footer-links"><a href="./index.html#shop">Shop</a><a href="./about.html">About</a><a href="./index.html#journal">Journal</a><a href="mailto:info@nevra.com">Contact</a></div><a href="mailto:info@nevra.com">info@nevra.com</a><span>© 2026 NEVRA</span></footer>
+  <script>
+  (() => {
+    const cart = JSON.parse(localStorage.getItem('nevra-cart') || '[]');
+    const price = 1200;
+    const money = v => '₴' + Number(v).toLocaleString('uk-UA');
+    const image = c => c === 'Khaki' ? './assets/shirt-khaki.jpg' : './assets/shirt-black.jpg';
+    const summary = document.querySelector('#summary-items');
+    const sum = cart.reduce((t,i) => t + i.qty * price, 0);
+    summary.innerHTML = cart.length ? cart.map(i => '<article class="summary-item"><img src="' + image(i.color) + '" alt="' + i.color + ' T-shirt"><div><strong>' + i.color + ' T-shirt</strong><small>Size ' + i.size + ' · Quantity ' + i.qty + '</small></div><strong>' + money(i.qty * price) + '</strong></article>').join('') : '<p class="checkout-empty">Ваш кошик порожній.</p>';
+    document.querySelector('#subtotal').textContent = money(sum);
+    document.querySelector('#total').textContent = money(sum);
+    document.querySelector('#checkout-form').addEventListener('submit', e => {
+      e.preventDefault();
+      if (!cart.length) { alert('Ваш кошик порожній.'); return; }
+      localStorage.removeItem('nevra-cart');
+      document.querySelector('#checkout-form').style.display = 'none';
+      document.querySelector('#success').classList.add('show');
+    });
+  })();
+  </script>
+</body>
+</html>

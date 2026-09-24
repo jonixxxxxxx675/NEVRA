@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111318">
+  <title>NEVRA — SALE</title>
+  <link rel="stylesheet" href="./styles.css">
+  <style>
+    .category-main{min-height:78vh;background:var(--paper);color:var(--ink);padding:125px clamp(18px,5.5vw,80px) 70px}
+    .category-head{max-width:760px;margin:0 auto 44px;text-align:center}
+    .category-head .eyebrow{color:#777a81}
+    .category-head h1{font:400 clamp(36px,5vw,62px)/1.1 var(--serif);margin:0 0 12px}
+    .category-head p{margin:0;color:#777a81}
+    .category-grid{max-width:1400px;margin:auto;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+    .category-card{display:block;color:var(--ink)}
+    .category-card img{width:100%;aspect-ratio:1/1.08;object-fit:contain;background:#e8e8e9}
+    .category-card h2{font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;margin:12px 0 4px}
+    .category-card p{font-size:12px;color:#777a81;margin:0}
+    .category-note{margin:36px auto 0;text-align:center;font-size:12px;color:#777a81}
+    @media(max-width:760px){.category-main{padding:92px 14px 48px}.category-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="wordmark" href="./index.html">NEVRA</a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="./index.html#shop">Shop</a><a href="./about.html">About</a><a href="./index.html#journal">Journal</a><a href="./index.html#contact">Contact</a>
+    </nav>
+    <a class="cart-trigger" href="./checkout.html" aria-label="Open checkout"><span class="bag-icon" aria-hidden="true"></span><span class="bag-label">Bag</span><span class="cart-count">0</span></a>
+  </header>
+
+  <main class="category-main">
+    <div class="category-head">
+      <p class="eyebrow">NEVRA / SPECIAL OFFERS</p>
+      <h1>SALE</h1>
+      <p>Спеціальні пропозиції та вибрані речі NEVRA.</p>
+    </div>
+    <div class="category-grid">
+      <a class="category-card" href="./product.html?color=Black">
+        <img src="./assets/shirt-black.jpg" alt="Black NEVRA T-shirt sale">
+        <h2>Black T-shirt</h2>
+        <p>₴1200</p>
+      </a>
+      <a class="category-card" href="./product.html?color=Khaki">
+        <img src="./assets/shirt-khaki.jpg" alt="Khaki NEVRA T-shirt sale">
+        <h2>Khaki T-shirt</h2>
+        <p>₴1200</p>
+      </a>
+    </div>
+    <p class="category-note">Фактичні ціни та розмір знижок можна змінити перед запуском продажів.</p>
+  </main>
+
+  <footer>
+    <a class="footer-wordmark" href="./index.html">NEVRA</a>
+    <div class="footer-links"><a href="./index.html#shop">Shop</a><a href="./about.html">About</a><a href="./index.html#journal">Journal</a><a href="mailto:info@nevra.com">Contact</a></div>
+    <a href="mailto:info@nevra.com">info@nevra.com</a><span>© 2026 NEVRA</span>
+  </footer>
+</body>
+</html>
