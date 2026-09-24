@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111318">
+  <title>About NEVRA — Silence. Strength. Discipline.</title>
+  <link rel="stylesheet" href="./styles.css">
+  <style>
+    .about-hero{position:relative;min-height:540px;height:min(72vw,820px);overflow:hidden;background:#111318;display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
+    .about-visual{position:relative;min-height:540px;overflow:hidden}
+    .about-visual img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;object-position:center 28%}
+    .about-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,12,16,.55),transparent 55%)}
+    .about-copy{padding:clamp(34px,7vw,100px);display:flex;flex-direction:column;justify-content:center;background:#171a20}
+    .about-copy h1{font:400 clamp(32px,4.2vw,62px)/1.12 var(--serif);margin:18px 0 28px;letter-spacing:-.025em}
+    .about-copy p{color:#b6b8be;max-width:560px;font-size:14px;line-height:1.9;margin:0 0 18px}
+    .about-manifesto{padding:90px 24px;text-align:center;background:var(--paper);color:var(--ink)}
+    .about-manifesto h2{font:400 clamp(28px,4vw,48px)/1.2 var(--serif);margin:14px auto;max-width:760px}
+    .about-manifesto p{color:#777a82;font-size:14px;letter-spacing:.04em}
+    .about-values{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#d7d8da;color:var(--ink)}
+    .about-value{background:var(--paper);padding:clamp(28px,5vw,64px)}
+    .about-value h3{font:400 25px var(--serif);margin:0 0 14px}
+    .about-value p{color:#737680;line-height:1.8;margin:0}
+    @media(max-width:700px){.about-hero{height:auto;min-height:0;grid-template-columns:1fr}.about-visual{height: min(118vw,650px);min-height:420px}.about-copy{padding:42px 25px 52px}.about-values{grid-template-columns:1fr}.about-manifesto{padding:64px 24px}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="wordmark" href="./index.html" aria-label="NEVRA home">NEVRA</a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="./index.html#shop">Shop</a><a href="./about.html" aria-current="page">About</a><a href="./index.html#journal">Journal</a><a href="./index.html#contact">Contact</a>
+    </nav>
+    <a class="cart-trigger" href="./index.html#shop" aria-label="Return to shop"><span class="bag-icon" aria-hidden="true"></span><span class="bag-label">Shop</span></a>
+  </header>
+  <main>
+    <section class="about-hero">
+      <div class="about-visual"><img src="./assets/nevra-reference.jpg" alt="NEVRA campaign portrait in a black hoodie"></div>
+      <div class="about-copy">
+        <p class="eyebrow">THE STORY / NEVRA</p>
+        <h1>Створено з тиші,<br>дисципліни та фокусу.</h1>
+        <p>NEVRA — це більше, ніж одяг. Це спосіб мислення, у якому сила починається із самоконтролю, а впевненість — із вірності власним принципам.</p>
+        <p>Ми створюємо одяг в Україні для тих, хто не потребує зайвих слів. Для людей, які щодня працюють над собою, обирають фокус і дозволяють своїм діям говорити голосніше за обіцянки.</p>
+        <p class="eyebrow">SILENCE. STRENGTH. DISCIPLINE.</p>
+      </div>
+    </section>
+    <section class="about-manifesto">
+      <p class="eyebrow">OUR PHILOSOPHY</p>
+      <h2>Ми не слідуємо трендам.<br>Ми формуємо власну ідентичність.</h2>
+      <p><em>Defined by purpose. Driven by vision.</em></p>
+    </section>
+    <section class="about-values" aria-label="Principles">
+      <article class="about-value"><p class="eyebrow">01 / PURPOSE</p><h3>Мета</h3><p>Кожна деталь має сенс. Ми створюємо речі, які підтримують твій шлях і залишають простір для головного.</p></article>
+      <article class="about-value"><p class="eyebrow">02 / STRENGTH</p><h3>Сила</h3><p>Справжня сила — у послідовності, витримці та щоденній роботі над собою.</p></article>
+      <article class="about-value"><p class="eyebrow">03 / DISCIPLINE</p><h3>Дисципліна</h3><p>Менше шуму. Більше фокусу. Дій відповідно до принципів, які обрав.</p></article>
+    </section>
+  </main>
+  <footer class="site-footer"><a class="footer-wordmark" href="./index.html">NEVRA</a><p class="eyebrow">SILENCE. STRENGTH. DISCIPLINE.</p></footer>
+</body>
+</html>
