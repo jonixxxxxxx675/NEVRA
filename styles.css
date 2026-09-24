@@ -151,3 +151,32 @@ body.cart-open{overflow:hidden}
   .cart-panel{padding:20px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+
+
+/* NEVRA layout refinements */
+.about-section{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:stretch}
+.about-image{min-width:0;min-height:420px}
+.about-image img{object-fit:cover;object-position:62% center}
+.about-copy{min-width:0;max-width:760px}
+.about-copy h2{max-width:620px;text-wrap:balance}
+.about-copy>p:not(.eyebrow){max-width:580px}
+@media(max-width:800px){
+  .site-header{grid-template-columns:auto minmax(0,1fr) auto;align-items:center}
+  .main-nav{min-width:0;gap:clamp(7px,1.7vw,14px)}
+  .cart-trigger{justify-self:end;flex-shrink:0;min-width:0}
+}
+@media(max-width:480px){
+  .site-header{display:flex;justify-content:space-between;gap:8px}
+  .wordmark{flex:0 0 auto}
+  .main-nav{flex:1;justify-content:center;gap:clamp(5px,1.5vw,8px)}
+  .cart-trigger{flex:0 0 auto;display:flex;align-items:center;justify-content:center;min-height:30px;line-height:1}
+  .cart-count{flex:0 0 auto;display:grid;place-items:center}
+  .hero-copy{max-width:68%;left:16px}
+  .hero h1{letter-spacing:-.035em}
+  .hero h1 span{margin-left:10px}
+  .about-section{grid-template-columns:1fr}
+  .about-image{height:78vw;min-height:260px;max-height:430px}
+  .about-image img{object-position:62% 30%}
+  .about-copy{padding:30px 22px 36px}
+  .about-copy h2{font-size:clamp(27px,7vw,36px)}
+}
