@@ -292,3 +292,49 @@ body.cart-open{overflow:hidden}
     font-size: 9px;
   }
 }
+
+/* Mobile hero: show the model cleanly and restore the hero copy only on mobile. */
+@media (max-width: 480px) {
+  .hero {
+    overflow: hidden;
+  }
+
+  .hero-model {
+    object-position: 72% center;
+  }
+
+  .hero-copy {
+    left: 18px;
+    right: 18px;
+    bottom: 8%;
+    top: auto;
+    max-width: 62%;
+    z-index: 2;
+  }
+
+  .hero-copy::before {
+    content: "NEVRA / EST. 2026";
+    display: block;
+    margin-bottom: 8px;
+    color: #a7a9ae;
+    font-size: 8px;
+    line-height: 1.5;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+  }
+
+  .hero-copy::after {
+    content: "Silence. Strength.\A Discipline.";
+    white-space: pre;
+    display: block;
+    margin-bottom: 15px;
+    color: #f5f5f6;
+    font: 400 clamp(23px, 6.2vw, 31px)/1.18 var(--serif);
+    letter-spacing: -.025em;
+  }
+
+  .hero-copy .outline-button {
+    position: relative;
+    z-index: 3;
+  }
+}
