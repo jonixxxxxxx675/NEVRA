@@ -338,3 +338,126 @@ body.cart-open{overflow:hidden}
     z-index: 3;
   }
 }
+
+/* Final mobile hero composition */
+.mobile-hero-copy {
+  display: none;
+}
+@media (max-width: 480px) {
+  .hero {
+    height: min(118vw, 520px);
+    min-height: 430px;
+  }
+
+  /* Crop out the baked-in left-side headline while keeping the face visible. */
+  .hero-model {
+    width: 125%;
+    max-width: none;
+    left: -24%;
+    right: auto;
+    object-position: center center;
+  }
+
+  .hero-copy {
+    left: 18px;
+    right: 18px;
+    bottom: 8%;
+    top: auto;
+    width: auto;
+    max-width: 62%;
+    transform: none;
+    z-index: 3;
+  }
+
+  .hero-copy::before,
+  .hero-copy::after {
+    content: none;
+  }
+
+  .mobile-hero-copy {
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  .mobile-hero-copy .eyebrow {
+    margin: 0 0 8px;
+    font-size: 8px;
+    line-height: 1.5;
+    letter-spacing: .22em;
+  }
+
+  .mobile-hero-copy h1 {
+    margin: 0;
+    color: #f5f5f6;
+    font: 400 clamp(23px, 6.2vw, 31px)/1.18 var(--serif);
+    letter-spacing: -.025em;
+  }
+
+  .hero-copy .outline-button {
+    min-height: 36px;
+    padding: 0 18px;
+    font-size: 9px;
+  }
+}
+
+
+/* Mobile hero/header correction — desktop remains unchanged. */
+@media (max-width: 800px) {
+  .site-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 10px;
+    padding: 0 14px;
+  }
+
+  .wordmark { display: none; }
+
+  .main-nav {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+    width: 100%;
+    min-width: 0;
+    justify-content: flex-start;
+    gap: clamp(9px, 2.5vw, 18px);
+    font-size: clamp(9px, 2vw, 11px);
+    letter-spacing: .035em;
+  }
+
+  .cart-trigger {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    flex-shrink: 0;
+  }
+
+  /* Campaign lettering is baked into the image; crop toward the model on mobile. */
+  .hero-model { object-position: 100% center; }
+
+  .hero-copy {
+    left: 16px;
+    right: auto;
+    top: auto;
+    bottom: 8%;
+    width: auto;
+    max-width: none;
+    transform: none;
+  }
+
+  .hero-copy .outline-button {
+    min-width: 150px;
+    min-height: 44px;
+    padding: 0 22px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-header { padding: 0 10px; gap: 8px; }
+  .main-nav {
+    gap: clamp(6px, 2vw, 10px);
+    font-size: clamp(8px, 2.2vw, 10px);
+  }
+  .hero-model { object-position: 100% center; }
+}
