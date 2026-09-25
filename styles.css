@@ -24,9 +24,10 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:22px;fl
 @media (max-width: 768px) {
   .site-header.navbar,
   .site-header {
-    position: relative;
-    top: auto;
-    left: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
     height: auto;
     min-height: 108px;
     display: flex;
@@ -35,7 +36,7 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:22px;fl
     justify-content: space-between;
     gap: 6px 12px;
     padding: 9px 16px 8px;
-    background: rgba(17,19,24,.96);
+    background: transparent;
     z-index: 30;
   }
 
