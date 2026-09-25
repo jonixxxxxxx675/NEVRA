@@ -504,3 +504,78 @@ body.cart-open{overflow:hidden}
     font-size: 10px;
   }
 }
+
+
+/* Contrast + responsive corrections */
+.hero-media{position:absolute;inset:0;display:block;width:100%;height:100%;overflow:hidden}
+.hero-media .hero-model{position:absolute;inset:0;width:100%;height:100%}
+
+.light-page .site-header{
+  color:var(--ink);
+  background:rgba(241,241,242,.96);
+  border-bottom:1px solid #d1d2d4;
+}
+.light-page .site-header .main-nav a{color:var(--ink)}
+.light-page .site-header .main-nav a:hover{color:#777a81}
+.light-page .site-header .cart-trigger{
+  color:var(--ink);
+  background:transparent;
+  border-color:#17191e;
+}
+.light-page .site-header .bag-icon,
+.light-page .site-header .bag-icon:before{border-color:#17191e}
+.light-page .outline-button{
+  color:var(--ink);
+  border-color:var(--ink);
+}
+.light-page .outline-button:hover{background:var(--ink);color:#fff}
+
+@media (max-width: 900px){
+  .about-hero{grid-template-columns:1fr !important;height:auto !important;min-height:0 !important}
+  .about-visual{height:min(118vw,650px) !important;min-height:420px !important}
+  .about-copy{padding:42px 25px 52px !important}
+  .about-values{grid-template-columns:1fr !important}
+  .about-manifesto{padding:64px 24px !important}
+}
+
+@media (max-width: 900px){
+  .hoodie-wrap{grid-template-columns:1fr !important}
+  .hoodie-gallery{grid-template-columns:1fr !important}
+  .hoodie-thumbs{grid-row:2 !important;grid-template-columns:repeat(7,1fr) !important}
+}
+
+@media (max-width: 800px){
+  .hero-media{inset:0}
+  .hero-media .hero-model{display:none}
+  .hero-media:before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:url("./assets/hero-mobile.jpg") center center / cover no-repeat;
+  }
+  .hero-shade{background:linear-gradient(0deg,rgba(10,12,16,.48),transparent 48%)}
+  .mobile-hero-copy{display:block}
+  .hero-copy{
+    left:18px;
+    right:18px;
+    bottom:8%;
+    top:auto;
+    max-width:62%;
+    z-index:3;
+  }
+  .hero-copy .outline-button{
+    min-width:150px;
+    min-height:44px;
+    padding:0 22px;
+    font-size:10px;
+  }
+  body:not(.light-page) .site-header{
+    grid-template-columns:minmax(0,1fr) auto !important;
+    background:rgba(17,19,24,.12);
+    border-bottom:0;
+  }
+  body:not(.light-page) .site-header .main-nav a{color:#fff}
+  body:not(.light-page) .site-header .cart-trigger{color:#fff;border-color:rgba(255,255,255,.65);background:rgba(17,19,24,.35)}
+  body:not(.light-page) .site-header .bag-icon,
+  body:not(.light-page) .site-header .bag-icon:before{border-color:#fff}
+}
