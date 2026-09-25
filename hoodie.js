@@ -1,1 +1,6 @@
 (()=>{const $=s=>document.querySelector(s),key='nevra-cart',cart=JSON.parse(localStorage.getItem(key)||'[]'),thumbs=[...document.querySelectorAll('.hoodie-thumb')],sizes=[...document.querySelectorAll('.hoodie-size')];let size='';const price=2900;thumbs.forEach(t=>t.addEventListener('click',()=>{thumbs.forEach(x=>x.classList.toggle('active',x===t));$('#hoodie-main-image').src=t.dataset.image}));sizes.forEach(b=>b.addEventListener('click',()=>{size=b.dataset.size;sizes.forEach(x=>x.setAttribute('aria-pressed',String(x===b)));$('#hoodie-message').textContent='Size '+size+' selected.'}));const render=()=>{if($('#cart-count'))$('#cart-count').textContent=cart.reduce((s,i)=>s+i.qty,0);localStorage.setItem(key,JSON.stringify(cart))};$('#hoodie-add').addEventListener('click',()=>{if(!size){$('#hoodie-message').textContent='Please select a size first.';return}const e=cart.find(i=>i.type==='hoodie'&&i.size===size);e?e.qty++:cart.push({type:'hoodie',title:'NEVRA Essential Hoodie',size,qty:1,price});render();location.href='./checkout.html'});$('#cart-open').addEventListener('click',()=>location.href='./checkout.html');render()})()
+document.querySelectorAll('.hoodie-thumb img, #hoodie-main-image').forEach(img => {
+  img.addEventListener('error', () => {
+    if (!img.src.endsWith('/hoodie-1.jpg')) img.src = './assets/hoodie-1.jpg';
+  }, { once: true });
+});
