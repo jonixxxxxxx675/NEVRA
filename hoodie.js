@@ -2,17 +2,6 @@
   const $ = selector => document.querySelector(selector);
   const storageKey = 'nevra-cart';
   const cart = JSON.parse(localStorage.getItem(storageKey) || '[]');
-
-  const hoodieImages = [
-    'assets/hoodie-1.jpg',
-    'assets/hoodie-2.jpg',
-    'assets/hoodie-3.jpg',
-    'assets/hoodie-4.jpg',
-    'assets/hoodie-5.jpg',
-    'assets/hoodie-6.jpg',
-    'assets/hoodie-7.jpg'
-  ];
-
   const thumbs = [...document.querySelectorAll('.hoodie-thumb')];
   const sizes = [...document.querySelectorAll('.hoodie-size')];
   const mainImage = $('#hoodie-main-image');
@@ -20,10 +9,10 @@
   const price = 2900;
 
   function setMainImage(path, thumb) {
-    const fileName = String(path || '').split('/').pop().toLowerCase();
-    const cleanPath = hoodieImages.find(item => item.endsWith('/' + fileName));
-    if (!cleanPath) return;
+    const cleanPath = String(path || '').replace(/^\/*(?:\.\/)*assets\//i, 'assets/').toLowerCase();
+    if (!cleanPath.startsWith('assets/')) return;
     mainImage.src = cleanPath;
+    mainImage.alt = thumb?.querySelector('img')?.alt || 'NEVRA Essential Hoodie';
     thumbs.forEach(item => item.classList.toggle('active', item === thumb));
   }
 
