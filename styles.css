@@ -29,13 +29,13 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:22px;fl
     left: 0;
     right: 0;
     height: auto;
-    min-height: 108px;
+    min-height: 82px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     gap: 6px 12px;
-    padding: 9px 16px 8px;
+    padding: 8px 16px;
     background: transparent;
     z-index: 30;
   }
@@ -49,24 +49,25 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:22px;fl
     font-size: 18px;
     line-height: 1;
     letter-spacing: .17em;
-  }
+  
+    display: none;}
 
   .main-nav,
   .main-nav.nav-links,
   .nav-links {
-    order: 3;
-    flex: 1 0 100%;
-    width: 100%;
+    flex: 0 1 auto;
+    width: auto;
     min-width: 0;
+    order: 0;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-    gap: 6px 16px;
-    padding: 1px 0 0;
-    font-size: 9px;
+    gap: 6px 14px;
+    padding: 0;
+    font-size: 8px;
     line-height: 1.2;
-    white-space: normal;
+    white-space: nowrap;
   }
 
   .site-header .cart-trigger {
@@ -187,8 +188,9 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:22px;fl
 }
 
 @media (max-width: 480px) {
-  .site-header { min-height: 104px; padding: 8px 14px 7px; }
-  .main-nav, .main-nav.nav-links, .nav-links { gap: 6px 11px; font-size: 8px; }
+  .site-header { min-height: 64px; padding: 8px 14px; }
+  .site-header .wordmark { display: none !important; }
+  .main-nav, .main-nav.nav-links, .nav-links { gap: 6px 11px; font-size: 8px; align-items: center; }
   .site-header .cart-trigger { width: 42px; height: 38px; min-height: 38px; }
   .hero.hero-section, .hero { height: 132vw; min-height: 500px; max-height: 590px; }
   .hero.hero-section .hero-content, .hero .hero-copy, .hero-content { padding: 0 20px; bottom: 7%; }
