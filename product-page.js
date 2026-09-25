@@ -7,7 +7,13 @@
   const price = 1200;
   let color = 'Black', size = '', quantity = 1;
 
-  const image = value => value === 'Khaki' ? './assets/shirt-khaki.jpg' : './assets/shirt-black.jpg';
+  const image = value => value === 'Khaki' ? 'assets/shirt-khaki.jpg' : 'assets/shirt-black.jpg';
+
+  function setProductImage(img, path, alt) {
+    const cleanPath = String(path || '').replace(/^\.?\/?assets\//, 'assets/');
+    img.src = cleanPath.startsWith('assets/') ? cleanPath : 'assets/shirt-black.jpg';
+    img.alt = alt;
+  }
   const money = value => '₴' + Number(value).toLocaleString('uk-UA');
 
   function toast(message) {
@@ -23,7 +29,8 @@
     $('#detail-title').textContent = value + ' T-shirt';
     $('#current-color').textContent = value;
     const img = $('#detail-image');
-    img.src = image(value); img.alt = value + ' NEVRA T-shirt';
+    setProductImage(img, image(value), value + ' NEVRA T-shirt');
+    img.onerror = () => { img.onerror = null; img.src = 'assets/shirt-black.jpg'; };
     img.style.filter = value === 'White' ? 'brightness(1.7) grayscale(1)'
       : value === 'Grey' ? 'grayscale(1) brightness(1.3)'
       : value === 'Khaki' ? 'sepia(.45) hue-rotate(25deg) saturate(.75)' : 'none';
