@@ -204,3 +204,5 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:22px;fl
 
 .hero-section > picture { position:absolute; inset:0; display:block; z-index:0; }
 .hero-section > picture .hero-model { position:absolute; inset:0; }
+
+.checkout-main{background-image:url("./assets/checkout-bg.jpg");background-size:cover;background-position:center;background-repeat:no-repeat;}
