@@ -13,7 +13,6 @@
     if (!cleanPath.toLowerCase().startsWith('assets/suit-')) return;
     mainImage.src = cleanPath;
     mainImage.alt = thumb?.querySelector('img')?.alt || 'NEVRA Tracksuit';
-    mainImage.style.objectPosition = /assets\/suit-1\.png$/i.test(cleanPath) ? 'center center' : 'center center';
     thumbs.forEach(item => item.classList.toggle('active', item === thumb));
   }
 
