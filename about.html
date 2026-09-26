@@ -22,9 +22,13 @@
     .about-value h3{font:400 25px var(--serif);margin:0 0 14px}
     .about-value p{color:#737680;line-height:1.8;margin:0}
     @media(max-width:700px){.about-hero{height:auto;min-height:0;grid-template-columns:1fr}.about-visual{height: min(118vw,650px);min-height:420px}.about-copy{padding:42px 25px 52px}.about-values{grid-template-columns:1fr}.about-manifesto{padding:64px 24px}}
+      @media(max-width:700px){
+      .about-page .main-nav{transform:translateX(38px);}
+      .about-page .about-visual img{filter:brightness(.84);}
+    }
   </style>
 </head>
-<body>
+<body class="about-page">
   <header class="site-header">
     <a class="wordmark" href="./index.html" aria-label="NEVRA home">NEVRA</a>
     <nav class="main-nav" aria-label="Main navigation">
