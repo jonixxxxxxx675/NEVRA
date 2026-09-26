@@ -8,49 +8,65 @@
 
 <style id="journal-desktop-full-width">
 @media (min-width: 769px) {
-  html, body.journal-page {
+  html,
+  body.journal-page {
     width: 100% !important;
-    min-width: 100% !important;
-    max-width: none !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
   }
 
   body.journal-page > main {
     display: block !important;
     width: 100% !important;
-    min-width: 100% !important;
-    max-width: none !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: calc(100vh - 82px) !important;
     margin: 0 !important;
     padding: 0 !important;
     box-sizing: border-box !important;
   }
 
-  body.journal-page .journal-hero,
-  body.journal-page .journal-grid {
+  body.journal-page .journal-hero {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  body.journal-page .journal-hero img {
     display: block !important;
     width: 100% !important;
-    min-width: 100% !important;
-    max-width: none !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+    height: auto !important;
+    max-width: 100% !important;
+    min-height: 0 !important;
+    object-fit: cover !important;
     box-sizing: border-box !important;
   }
 
   body.journal-page .journal-grid {
-    display: grid !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
     grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
   }
 
   body.journal-page .journal-card {
     width: 100% !important;
     min-width: 0 !important;
-    max-width: none !important;
-    box-sizing: border-box !important;
-  }
-
-  body.journal-page .journal-card img {
-    width: 100% !important;
     max-width: none !important;
     box-sizing: border-box !important;
   }
