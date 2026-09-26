@@ -24,6 +24,63 @@ body.journal-page .journal-grid { box-sizing:border-box; }
   body.journal-page .journal-grid { grid-template-columns:repeat(3,minmax(0,1fr)) !important; }
 }
 </style>
+<style id="journal-size-fix">
+/* JOURNAL PAGE ONLY — preserve full page dimensions even while images are broken */
+html, body.journal-page {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden;
+}
+body.journal-page main,
+body.journal-page .journal-hero,
+body.journal-page .journal-grid,
+body.journal-page .nevra-footer {
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+body.journal-page .journal-hero {
+  min-height: clamp(320px, 46vw, 540px);
+}
+body.journal-page .journal-hero img {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: inherit;
+  object-fit: cover;
+  object-position: center;
+}
+body.journal-page .journal-grid {
+  min-height: 720px;
+}
+body.journal-page .journal-card .journal-card-image,
+body.journal-page .journal-card img {
+  width: 100% !important;
+}
+body.journal-page .journal-card img {
+  min-height: 220px;
+  aspect-ratio: 1.42 / 1;
+  object-fit: cover;
+}
+@media (max-width: 768px) {
+  body.journal-page .journal-hero {
+    min-height: 300px;
+  }
+  body.journal-page .journal-grid {
+    min-height: 0;
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    padding: 24px 18px 48px;
+  }
+  body.journal-page .journal-card img {
+    min-height: 190px;
+    aspect-ratio: 1.42 / 1;
+  }
+}
+</style>
 </head>
 <body class="journal-page">
 <header class="site-header navbar"><a class="wordmark" href="./index.html">NEVRA</a><nav class="main-nav nav-links" aria-label="Main navigation"><a href="./index.html#shop">Shop</a><a href="./about.html">About</a><a href="./journal.html" aria-current="page">Journal</a><a href="./tracking.html">Track order</a><a href="./contact.html">Contact</a></nav><button class="cart-trigger" id="cart-open" type="button"><span class="bag-icon"></span><span class="bag-label">Bag</span><span class="cart-count" id="cart-count">0</span></button></header>
