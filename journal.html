@@ -6,122 +6,31 @@
 <link rel="stylesheet" href="./styles.css"><script src="./script.js" defer></script>
 <style>@media (min-width:769px){.site-header.navbar .main-nav{transform:translateX(120px)}.site-header.navbar .cart-trigger{transform:translateX(325px)}}</style>
 
-
-<style id="journal-size-normalized">
-/* JOURNAL ONLY: remove horizontal width constraint. Preserve existing heights and footer. */
-html:has(body.journal-page) {
-  width: 100vw !important;
-  min-width: 100vw !important;
-  max-width: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-body.journal-page {
-  width: 100vw !important;
-  min-width: 100vw !important;
-  max-width: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  overflow-x: hidden !important;
-}
-
-body.journal-page > main {
-  display: block !important;
-  width: 100vw !important;
-  min-width: 100vw !important;
-  max-width: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  position: relative !important;
-  left: 0 !important;
-  right: auto !important;
-  box-sizing: border-box !important;
-}
-
-body.journal-page .journal-hero,
-body.journal-page .journal-grid {
-  width: 100vw !important;
-  min-width: 100vw !important;
-  max-width: none !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  box-sizing: border-box !important;
-}
-
-body.journal-page .journal-hero img {
-  display: block !important;
-  width: 100% !important;
-  max-width: none !important;
-  box-sizing: border-box !important;
-}
-
-body.journal-page .journal-grid {
-  display: grid !important;
-  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-  box-sizing: border-box !important;
-}
-
-body.journal-page .journal-card {
-  width: 100% !important;
-  min-width: 0 !important;
-  max-width: none !important;
-  box-sizing: border-box !important;
-}
-
-body.journal-page .journal-card img {
-  display: block !important;
-  width: 100% !important;
-  max-width: none !important;
-  box-sizing: border-box !important;
-}
-
-@media (max-width: 900px) {
-  body.journal-page > main,
-  body.journal-page .journal-hero,
-  body.journal-page .journal-grid {
-    width: 100vw !important;
-    min-width: 100vw !important;
-    max-width: none !important;
-  }
-
-  body.journal-page .journal-grid {
-    grid-template-columns: 1fr !important;
-  }
-}
-</style>
-
-
-<style id="journal-desktop-1400">
+<style id="journal-desktop-full-width">
 @media (min-width: 769px) {
-  html {
-    width: 100% !important;
-    min-width: 100% !important;
-    max-width: none !important;
-  }
-
-  body.journal-page {
+  html, body.journal-page {
     width: 100% !important;
     min-width: 100% !important;
     max-width: none !important;
     margin: 0 !important;
     padding: 0 !important;
-    overflow-x: hidden !important;
   }
 
   body.journal-page > main {
     display: block !important;
-    width: min(1400px, 100vw) !important;
-    min-width: min(1400px, 100vw) !important;
-    max-width: 1400px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
     box-sizing: border-box !important;
   }
 
-  body.journal-page .journal-hero {
+  body.journal-page .journal-hero,
+  body.journal-page .journal-grid {
+    display: block !important;
     width: 100% !important;
-    min-width: 0 !important;
+    min-width: 100% !important;
     max-width: none !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
@@ -129,24 +38,24 @@ body.journal-page .journal-card img {
   }
 
   body.journal-page .journal-grid {
-    width: 100% !important;
-    min-width: 0 !important;
-    max-width: none !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    box-sizing: border-box !important;
+    display: grid !important;
     grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
   }
 
   body.journal-page .journal-card {
-    width: auto !important;
+    width: 100% !important;
     min-width: 0 !important;
+    max-width: none !important;
+    box-sizing: border-box !important;
+  }
+
+  body.journal-page .journal-card img {
+    width: 100% !important;
     max-width: none !important;
     box-sizing: border-box !important;
   }
 }
 </style>
-
 </head>
 <body class="journal-page">
 <header class="site-header navbar"><a class="wordmark" href="./index.html">NEVRA</a><nav class="main-nav nav-links" aria-label="Main navigation"><a href="./index.html#shop">Shop</a><a href="./about.html">About</a><a href="./journal.html" aria-current="page">Journal</a><a href="./tracking.html">Track order</a><a href="./contact.html">Contact</a></nav><button class="cart-trigger" id="cart-open" type="button"><span class="bag-icon"></span><span class="bag-label">Bag</span><span class="cart-count" id="cart-count">0</span></button></header>
