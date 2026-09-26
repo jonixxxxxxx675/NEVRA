@@ -249,3 +249,41 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:22px;fl
     object-position:center center;
   }
 }
+
+/* FINAL HOODIE GALLERY FIX — only Essential Hoodie */
+.hoodie-page .product-gallery,
+.hoodie-page .main-image,
+.hoodie-page .hoodie-main-image {
+  background: transparent !important;
+}
+.hoodie-page .product-gallery .main-image,
+.hoodie-page .main-image,
+.hoodie-page .hoodie-main-image {
+  height: auto !important;
+  min-height: 0 !important;
+  aspect-ratio: auto !important;
+}
+.hoodie-page .product-gallery .main-image img,
+.hoodie-page .main-image img,
+.hoodie-page .hoodie-main-image img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+  background: transparent !important;
+}
+@media (max-width: 768px) {
+  .hoodie-page .product-gallery .main-image,
+  .hoodie-page .main-image,
+  .hoodie-page .hoodie-main-image {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+  .hoodie-page .product-gallery .main-image img,
+  .hoodie-page .main-image img,
+  .hoodie-page .hoodie-main-image img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+}
