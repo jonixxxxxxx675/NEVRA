@@ -206,3 +206,14 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:22px;fl
 .hero-section > picture .hero-model { position:absolute; inset:0; }
 
 .checkout-main{background-image:url("./assets/checkout-bg.jpg");background-size:cover;background-position:center;background-repeat:no-repeat;}
+
+
+ /* Tracksuit image fill — only the new tracksuit blocks */
+.tracksuit-product .product-image-wrap{background:transparent}
+.tracksuit-product .product-image-wrap img{object-fit:cover;max-height:none}
+.tracksuit-page .hoodie-main-image{background:transparent}
+.tracksuit-page .hoodie-main-image img{object-fit:cover}
+@media (max-width:768px){
+  .tracksuit-product .product-image-wrap{min-height:0;aspect-ratio:4/5}
+  .tracksuit-page .hoodie-main-image img{aspect-ratio:4/5}
+}
