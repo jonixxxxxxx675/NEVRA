@@ -241,3 +241,20 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:22px;fl
 @media (min-width:769px){
   .category-main{min-height:calc(100vh - 82px - 66px);}
 }
+
+/* PRODUCT DESKTOP FOOTER FIX */
+
+@media (min-width:769px){
+  body.product-detail-page{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+  }
+  body.product-detail-page .product-page-main,
+  body.product-detail-page .hoodie-main{
+    flex:1 0 auto;
+  }
+  body.product-detail-page footer{
+    margin-top:auto;
+  }
+}
