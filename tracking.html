@@ -57,6 +57,39 @@
       .tracking-page .main-nav{transform:translateX(45px);}
       .tracking-page .tracking-main{background-image:linear-gradient(rgba(0,0,0,.28),rgba(0,0,0,.28)),url("./assets/tracking-background.png");}
     }
+
+    @media(min-width:521px){
+      .tracking-main{
+        min-height:calc(100vh - 82px);
+        background-color:transparent;
+        background-image:linear-gradient(rgba(0,0,0,.28),rgba(0,0,0,.28)),url("./assets/tracking-background.png");
+        background-position:center top;
+        background-size:cover;
+        color:#fff;
+        padding:120px 40px 70px;
+      }
+      .tracking-wrap{max-width:760px;margin:0 auto}
+      .tracking-head{margin-bottom:38px}
+      .tracking-head .eyebrow,
+      .tracking-head p:last-child,
+      .tracking-form label,
+      .tracking-note,
+      .tracking-result h2,
+      .tracking-result p{color:#fff !important}
+      .tracking-head h1{display:none}
+      .tracking-head .eyebrow{margin-top:80px}
+      .tracking-head p:last-child{margin-top:28px}
+      .tracking-card{background:transparent;border-color:transparent;padding:clamp(22px,5vw,42px)}
+      .tracking-form input{
+        background:transparent;
+        color:#fff;
+        border-color:rgba(255,255,255,.8);
+      }
+      .tracking-form input::placeholder{color:rgba(255,255,255,.75);opacity:1}
+      .tracking-form input:focus{border-color:#fff}
+      .tracking-form .solid-button{background:#17191e;border-color:#17191e;color:#fff}
+    }
+
   </style>
 </head>
 <body class="light-page tracking-page">
