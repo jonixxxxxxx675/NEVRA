@@ -236,3 +236,8 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:22px;fl
     transform:scale(1.18);
   }
 }
+
+/* CLASSIC desktop only — keep footer at the bottom without changing mobile */
+@media (min-width:769px){
+  .category-main{min-height:calc(100vh - 82px - 66px);}
+}
