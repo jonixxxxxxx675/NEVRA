@@ -210,7 +210,7 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:22px;fl
 
  /* Tracksuit image fill — only the new tracksuit blocks */
 .tracksuit-product .product-image-wrap{background:transparent}
-.tracksuit-product .product-image-wrap img{object-fit:cover;max-height:none}
+.tracksuit-product .product-image-wrap img{object-fit:cover;object-position:center top;max-height:none}
 .tracksuit-page .hoodie-main-image{background:transparent}
 .tracksuit-page .hoodie-main-image img{object-fit:cover}
 @media (max-width:768px){
