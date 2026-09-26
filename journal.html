@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#050608"><title>NEVRA — JOURNAL</title>
+<link rel="stylesheet" href="./styles.css"><script src="./script.js" defer></script>
+<style>@media (min-width:769px){.site-header.navbar .main-nav{transform:translateX(120px)}.site-header.navbar .cart-trigger{transform:translateX(325px)}}</style>
+</head>
+<body class="journal-page">
+<header class="site-header navbar"><a class="wordmark" href="./index.html">NEVRA</a><nav class="main-nav nav-links" aria-label="Main navigation"><a href="./index.html#shop">Shop</a><a href="./about.html">About</a><a href="./journal.html" aria-current="page">Journal</a><a href="./tracking.html">Track order</a><a href="./contact.html">Contact</a></nav><button class="cart-trigger" id="cart-open" type="button"><span class="bag-icon"></span><span class="bag-label">Bag</span><span class="cart-count" id="cart-count">0</span></button></header>
+<main><section class="journal-hero"><img src="./assets/journal-hero.jpg" alt="NEVRA Journal — Let actions speak."></section>
+<section class="journal-grid" aria-label="NEVRA Journal articles">
+<article class="journal-card"><a href="#discipline"><img src="./assets/journal-1.jpg" alt="NEVRA hoodie in a dark environment"><div class="journal-card-body"><p class="journal-date">SEP 12, 2026</p><h2>DISCIPLINE IN DAILY LIFE</h2><p>How small habits create big results. Discipline is not a mood, it's a decision you make every day.</p><span class="journal-read">READ MORE <b>→</b></span></div></a></article>
+<article class="journal-card"><a href="#story"><img src="./assets/journal-2.jpg" alt="NEVRA logo detail on black clothing"><div class="journal-card-body"><p class="journal-date">SEP 5, 2026</p><h2>THE STORY BEHIND NEVRA</h2><p>More than clothing. A symbol of focus, movement and self-control. Discover what NEVRA stands for.</p><span class="journal-read">READ MORE <b>→</b></span></div></a></article>
+<article class="journal-card"><a href="#places"><img src="./assets/journal-3.jpg" alt="Person standing in a mountain landscape"><div class="journal-card-body"><p class="journal-date">AUG 28, 2026</p><h2>PLACES THAT INSPIRE</h2><p>Mountains, cities, routines. The environments that shape our mindset and creativity.</p><span class="journal-read">READ MORE <b>→</b></span></div></a></article>
+<article class="journal-card"><a href="#training"><img src="./assets/journal-4.jpg" alt="Training equipment in a dark environment"><div class="journal-card-body"><p class="journal-date">AUG 18, 2026</p><h2>TRAINING MIND &amp; BODY</h2><p>Physical progress builds mental clarity. A closer look at our training routine and philosophy.</p><span class="journal-read">READ MORE <b>→</b></span></div></a></article>
+<article class="journal-card"><a href="#materials"><img src="./assets/journal-5.jpg" alt="NEVRA material detail"><div class="journal-card-body"><p class="journal-date">AUG 10, 2026</p><h2>MATERIALS MATTER</h2><p>Why we choose premium materials, and how they define the feel, durability and purpose of each piece.</p><span class="journal-read">READ MORE <b>→</b></span></div></a></article>
+<article class="journal-card"><a href="#people"><img src="./assets/journal-6.jpg" alt="People wearing NEVRA in a dark environment"><div class="journal-card-body"><p class="journal-date">AUG 2, 2026</p><h2>PEOPLE OF NEVRA</h2><p>Stories from our community. Different paths, same mindset. Real people, real motivation.</p><span class="journal-read">READ MORE <b>→</b></span></div></a></article>
+</section></main>
+<div id="cart-backdrop" hidden></div><aside class="cart-panel" id="cart-panel" aria-label="Shopping bag"><div class="cart-panel-head"><h2>Bag <span id="cart-heading-count">(0)</span></h2><button id="cart-close" type="button">×</button></div><div id="cart-items"></div><div class="cart-panel-foot"><div><span>Total</span><strong id="cart-total">₴0</strong></div><button class="solid-button" id="checkout-button" type="button">CHECKOUT</button></div></aside>
+<footer class="nevra-footer">
+  <div class="nevra-footer-grid">
+    <div class="nevra-footer-brand">
+      <a class="nevra-footer-logo" href="./index.html">NEVRA</a>
+      <span class="nevra-footer-rule"></span>
+      <p class="nevra-footer-slogan">TECHNOLOGY.<br>STYLE.<br>REAL WORLD.</p>
+      <p class="nevra-footer-copy">Premium products.<br>Fast delivery.<br>Worldwide.</p>
+      <div class="nevra-footer-socials" aria-label="Social media">
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" class="fill-dot"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4v10.1a4.4 4.4 0 1 1-3.2-4.2v3a1.6 1.6 0 1 0 1.1 1.5V4h2.1c.4 1.8 1.6 3.1 3.4 3.6v2.2c-1.4-.2-2.6-.8-3.4-1.7V4H14Z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="m10 9 5 3-5 3V9Z" class="fill-shape"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="nevra-footer-column">
+      <h3>SHOP</h3><span class="nevra-footer-rule"></span>
+      <a href="./classic.html">All Products</a>
+      <a href="./classic.html">Apparel</a>
+      <a href="./accessories.html">Accessories</a>
+      <a href="./sale.html">New Arrivals</a>
+    </div>
+
+    <div class="nevra-footer-column">
+      <h3>SUPPORT</h3><span class="nevra-footer-rule"></span>
+      <a href="./tracking.html">Order Tracking</a>
+      <a href="./support.html#shipping">Shipping</a>
+      <a href="./support.html#returns">Returns &amp; Refunds</a>
+      <a href="./support.html#size-guide">Size Guide</a>
+      <a href="./support.html#faq">FAQ</a>
+      <a href="./contact.html">Contact Us</a>
+    </div>
+
+    <div class="nevra-footer-column">
+      <h3>ABOUT</h3><span class="nevra-footer-rule"></span>
+      <a href="./about.html">Our Story</a>
+      <a href="./support.html#materials">Materials</a>
+      <a href="./support.html#sustainability">Sustainability</a>
+      <a href="./journal.html">Journal</a>
+    </div>
+  </div>
+
+  <div class="nevra-footer-bottom">
+    <div class="nevra-footer-legal">
+      <p>© 2026 NEVRA. All rights reserved.</p>
+      <p>Premium gear. Global delivery. Real people.</p>
+    </div>
+    <div class="nevra-footer-payments" aria-label="Payment methods">
+      <span class="payment visa">VISA</span>
+      <span class="payment mastercard"><i></i><i></i></span>
+      <span class="payment apple"><b>Pay</b></span>
+      <span class="payment gpay">G<span>Pay</span></span>
+      <span class="payment paypal"><b>P</b> PayPal</span>
+    </div>
+    <button class="nevra-footer-language" type="button" aria-label="Language: English"><svg class="globe-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.4 3.8 5.4 3.8 9S14.6 18.6 12 21M12 3c-2.6 2.4-3.8 5.4-3.8 9s1.2 6.6 3.8 9"/></svg><span>EN</span><span class="chevron">⌄</span></button>
+  </div>
+</footer>
+
+
+</body>
+</html>
