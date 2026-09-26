@@ -391,3 +391,16 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:22px;fl
     background:rgba(0,0,0,.22);
   }
 }
+
+
+/* CONTACT DESKTOP — header alignment only */
+@media (min-width:769px){
+  .contact-page .site-header .main-nav{
+    position:relative;
+    left:12vw;
+  }
+  .contact-page .site-header .cart-trigger{
+    position:relative;
+    left:7vw;
+  }
+}
