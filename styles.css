@@ -400,7 +400,8 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:22px;fl
     left:12vw;
   }
   .contact-page .site-header .cart-trigger{
-    position:relative;
-    left:7vw;
+    position:absolute;
+    right:2.5vw;
+    left:auto;
   }
 }
