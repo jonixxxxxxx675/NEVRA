@@ -229,3 +229,23 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:22px;fl
     object-position: center center !important;
   }
 }
+
+/* Hoodie gallery fill — only existing hoodie product page */
+.hoodie-page .hoodie-main-image{
+  background:transparent;
+  overflow:hidden;
+}
+.hoodie-page .hoodie-main-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center center;
+}
+@media (max-width:768px){
+  .hoodie-page .hoodie-main-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center center;
+  }
+}
