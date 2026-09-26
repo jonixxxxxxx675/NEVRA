@@ -8,13 +8,10 @@
 
 <style id="journal-desktop-full-width">
 @media (min-width: 769px) {
-  html,
   body.journal-page {
-    width: 100% !important;
+    width: 128.5714% !important;
     min-width: 0 !important;
-    max-width: 100% !important;
-    height: auto !important;
-    min-height: 100% !important;
+    max-width: none !important;
     margin: 0 !important;
     padding: 0 !important;
     box-sizing: border-box !important;
@@ -25,7 +22,7 @@
     display: block !important;
     width: 100% !important;
     min-width: 0 !important;
-    max-width: 100% !important;
+    max-width: none !important;
     height: auto !important;
     min-height: calc(100vh - 82px) !important;
     margin: 0 !important;
@@ -36,20 +33,21 @@
   body.journal-page .journal-hero {
     width: 100% !important;
     min-width: 0 !important;
-    max-width: 100% !important;
-    height: auto !important;
-    min-height: 0 !important;
-    max-height: none !important;
+    max-width: none !important;
+    height: 480px !important;
+    min-height: 480px !important;
+    max-height: 480px !important;
     margin: 0 !important;
     padding: 0 !important;
+    overflow: hidden !important;
     box-sizing: border-box !important;
   }
 
   body.journal-page .journal-hero img {
     display: block !important;
     width: 100% !important;
-    height: auto !important;
-    max-width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
     min-height: 0 !important;
     object-fit: cover !important;
     box-sizing: border-box !important;
@@ -58,7 +56,7 @@
   body.journal-page .journal-grid {
     width: 100% !important;
     min-width: 0 !important;
-    max-width: 100% !important;
+    max-width: none !important;
     margin: 0 !important;
     box-sizing: border-box !important;
     grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
