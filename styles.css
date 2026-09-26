@@ -217,3 +217,22 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:22px;fl
   .tracksuit-product .product-image-wrap{min-height:0;aspect-ratio:4/5}
   .tracksuit-page .hoodie-main-image img{aspect-ratio:4/5}
 }
+
+
+/* CLASSIC collection cards — remove visible gray margins only */
+.category-main .category-card .media{
+  background:transparent !important;
+  overflow:hidden;
+}
+.category-main .category-card .media img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  transform:scale(1.18);
+  transform-origin:center center;
+}
+@media (max-width:768px){
+  .category-main .category-card .media img{
+    transform:scale(1.18);
+  }
+}
