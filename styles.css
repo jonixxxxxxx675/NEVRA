@@ -329,6 +329,41 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:22px;fl
  .contact-submit{width:100%;min-width:0}
 }
 
+/* CONTACT DESKTOP — only desktop version */
+@media (min-width:769px){
+  .contact-page .site-header .cart-trigger{
+    justify-self:end;
+    margin-right:0;
+  }
+
+  .contact-page .contact-main{
+    padding-top:280px;
+  }
+
+  .contact-page .contact-intro .eyebrow,
+  .contact-page .contact-intro h1,
+  .contact-page .contact-intro>p:last-child,
+  .contact-page .contact-form label>span,
+  .contact-page .contact-note,
+  .contact-page .contact-note strong{
+    color:#fff;
+  }
+
+  .contact-page .contact-form input,
+  .contact-page .contact-form textarea{
+    background:rgba(0,0,0,.16);
+    border-color:rgba(255,255,255,.58);
+    color:#fff;
+    box-shadow:none;
+  }
+
+  .contact-page .contact-form input:focus,
+  .contact-page .contact-form textarea:focus{
+    border-color:#fff;
+    background:rgba(0,0,0,.22);
+  }
+}
+
 /* CONTACT MOBILE — transparent fields over the background; desktop unchanged */
 @media (max-width:768px){
   .contact-page .contact-intro .eyebrow,
