@@ -5,6 +5,25 @@
 <meta name="theme-color" content="#050608"><title>NEVRA — JOURNAL</title>
 <link rel="stylesheet" href="./styles.css"><script src="./script.js" defer></script>
 <style>@media (min-width:769px){.site-header.navbar .main-nav{transform:translateX(120px)}.site-header.navbar .cart-trigger{transform:translateX(325px)}}</style>
+<style id="journal-layout-fix">
+/* JOURNAL PAGE ONLY — layout/size fix */
+html:has(body.journal-page),
+body.journal-page { width:100%; max-width:none; min-width:0; margin:0; overflow-x:hidden; }
+body.journal-page main,
+body.journal-page .journal-hero,
+body.journal-page .journal-grid,
+body.journal-page .nevra-footer { width:100%; max-width:none; min-width:0; }
+body.journal-page .journal-grid { box-sizing:border-box; }
+@media (max-width:768px){
+  body.journal-page .journal-grid { grid-template-columns:1fr !important; width:100% !important; }
+  body.journal-page .journal-card { width:100%; min-width:0; }
+  body.journal-page .journal-card img { width:100%; max-width:100%; }
+  body.journal-page .nevra-footer { width:100% !important; }
+}
+@media (min-width:769px){
+  body.journal-page .journal-grid { grid-template-columns:repeat(3,minmax(0,1fr)) !important; }
+}
+</style>
 </head>
 <body class="journal-page">
 <header class="site-header navbar"><a class="wordmark" href="./index.html">NEVRA</a><nav class="main-nav nav-links" aria-label="Main navigation"><a href="./index.html#shop">Shop</a><a href="./about.html">About</a><a href="./journal.html" aria-current="page">Journal</a><a href="./tracking.html">Track order</a><a href="./contact.html">Contact</a></nav><button class="cart-trigger" id="cart-open" type="button"><span class="bag-icon"></span><span class="bag-label">Bag</span><span class="cart-count" id="cart-count">0</span></button></header>
