@@ -567,3 +567,21 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:22px;fl
     left:70px !important;
   }
 }
+
+@media (max-width:768px){
+  body:has(#home) .reference-about-image{
+    width:100% !important;
+    height:125.31vw !important;
+    min-height:0 !important;
+    max-height:none !important;
+    aspect-ratio:auto !important;
+    overflow:hidden !important;
+  }
+  body:has(#home) .reference-about-image img{
+    display:block !important;
+    width:100% !important;
+    height:100% !important;
+    object-fit:fill !important;
+    object-position:center center !important;
+  }
+}
