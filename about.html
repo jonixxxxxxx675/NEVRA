@@ -28,38 +28,7 @@
     }
   </style>
 
-<style id="about-mobile-new">
-@media (max-width:700px){
-  .about-page .about-desktop-content{display:none!important;}
-  .about-page .about-mobile-new{display:block!important;background:#050608;color:#f4f4f4;}
-  .about-page .site-header{position:absolute;top:0;z-index:50;}
-  .about-page .about-mobile-new{padding-top:0;}
-  .amn-hero{position:relative;height:78vw;min-height:390px;max-height:620px;overflow:hidden;background:#050608;}
-  .amn-hero>img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block;}
-  .amn-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.62),rgba(0,0,0,.05) 70%);}
-  .amn-hero-copy{position:absolute;left:8%;top:50%;transform:translateY(-50%);z-index:2;max-width:48%;}
-  .amn-hero-copy h1,.amn-copy h2{font-family:var(--serif);font-weight:400;letter-spacing:-.025em;}
-  .amn-hero-copy h1{font-size:clamp(30px,7vw,48px);line-height:1.02;margin:10px 0 18px;}
-  .amn-hero-copy>p:last-child{font-size:11px;line-height:1.55;letter-spacing:.16em;margin:16px 0 0;}
-  .amn-kicker{font-size:9px;letter-spacing:.2em;text-transform:uppercase;margin:0;color:#d8d8dc;}
-  .amn-rule{display:block;width:48px;height:1px;background:#f4f4f4;margin:15px 0 18px;}
-  .amn-split{display:grid;grid-template-columns:1fr 1fr;min-height:390px;}
-  .amn-copy{background:#050608;padding:9vw 7%;display:flex;flex-direction:column;justify-content:center;}
-  .amn-copy h2{font-size:clamp(29px,6vw,45px);line-height:1.04;margin:12px 0 0;}
-  .amn-copy>p:not(.amn-kicker){font-size:11px;line-height:1.7;color:#c0c1c5;margin:0 0 10px;}
-  .amn-image{min-height:390px;overflow:hidden;}
-  .amn-image img{width:100%;height:100%;display:block;object-fit:cover;}
-  .amn-story .amn-image img{object-position:center center;}
-  .amn-purpose .amn-image img{object-position:center center;}
-  .amn-values .amn-image img{object-position:center center;}
-  .amn-values-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px;text-align:center;}
-  .amn-values-row div{display:flex;flex-direction:column;align-items:center;gap:4px;}
-  .amn-values-row b{font-size:22px;font-weight:400;}
-  .amn-values-row strong{font-size:8px;letter-spacing:.16em;}
-  .amn-values-row span{font-size:7px;line-height:1.4;letter-spacing:.1em;color:#b8b9bd;}
-}
-@media (min-width:701px){.about-page .about-mobile-new{display:block!important;} .about-page .site-header{position:absolute;top:0;z-index:50;}}
-</style>
+
 
 <style id="about-new-desktop">
 .about-page .about-mobile-new{display:none;}
@@ -95,6 +64,50 @@
   .amn-values-row span{font-size:8px;line-height:1.5;letter-spacing:.11em;color:#b8b9bd;}
 }
 </style>
+<style id="about-new-both">
+.about-new-page{background:#050608;color:#f4f4f4}
+.about-new-page img{display:block;width:100%}
+.an-hero{position:relative;overflow:hidden;background:#050608}
+.an-hero>img{width:100%;height:auto;max-height:none;object-fit:cover}
+.an-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.62),rgba(0,0,0,.08) 68%,transparent)}
+.an-hero-copy{position:absolute;left:7.5%;top:50%;transform:translateY(-50%);z-index:2;max-width:330px}
+.an-hero-copy h1,.an-copy h2{font-family:var(--serif);font-weight:400;letter-spacing:-.025em}
+.an-hero-copy h1{font-size:clamp(44px,5.4vw,78px);line-height:.98;margin:0}
+.an-rule{display:block;width:48px;height:1px;background:#f4f4f4;margin:18px 0 20px}
+.an-hero-copy p{font-size:12px;line-height:1.6;letter-spacing:.17em;margin:0}
+.an-kicker{font-size:10px;letter-spacing:.2em;text-transform:uppercase;margin:0;color:#d8d8dc}
+.an-split{display:grid;grid-template-columns:1fr 1fr;min-height:460px}
+.an-copy{background:#050608;padding:7vw 8%;display:flex;flex-direction:column;justify-content:center}
+.an-copy h2{font-size:clamp(42px,4.3vw,68px);line-height:1.02;margin:14px 0 0}
+.an-copy>p:not(.an-kicker){font-size:13px;line-height:1.65;color:#c4c5c9;margin:0 0 12px;max-width:560px}
+.an-image{overflow:hidden;min-height:460px}
+.an-image img{height:100%;object-fit:cover}
+.an-story .an-image img{object-position:center center}
+.an-purpose .an-image img{object-position:center center}
+.an-values .an-image img{object-position:center center}
+.an-values-row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:24px;text-align:center}
+.an-values-row div{display:flex;flex-direction:column;align-items:center;gap:6px}
+.an-values-row b{font-size:28px;font-weight:400}
+.an-values-row strong{font-size:10px;letter-spacing:.17em}
+.an-values-row span{font-size:8px;line-height:1.45;letter-spacing:.1em;color:#b8b9bd}
+@media(max-width:700px){
+  .an-hero{min-height:0}
+  .an-hero>img{height:auto;object-fit:contain}
+  .an-hero:after{background:linear-gradient(90deg,rgba(0,0,0,.58),rgba(0,0,0,.04) 78%)}
+  .an-hero-copy{left:8%;top:50%;max-width:52%}
+  .an-hero-copy h1{font-size:clamp(32px,8vw,48px)}
+  .an-hero-copy p{font-size:9px;letter-spacing:.14em}
+  .an-split{grid-template-columns:1fr 1fr;min-height:0}
+  .an-copy{padding:9vw 7%;min-height:390px}
+  .an-copy h2{font-size:clamp(30px,7vw,43px)}
+  .an-copy>p:not(.an-kicker){font-size:10px;line-height:1.65}
+  .an-image{min-height:390px}
+  .an-image img{height:100%;object-fit:cover}
+  .an-values-row{gap:8px;margin-top:16px}
+  .an-values-row b{font-size:20px}
+  .an-values-row strong{font-size:7px}
+  .an-values-row span{font-size:6px}
+}
 </head>
 <body class="about-page">
   <header class="site-header">
@@ -104,77 +117,53 @@
     </nav>
     <a class="cart-trigger" href="./index.html#shop" aria-label="Return to shop"><span class="bag-icon" aria-hidden="true"></span><span class="bag-label">Shop</span></a>
   </header>
-  <main class="about-desktop-content">
-    <section class="about-hero">
-      <div class="about-visual"><img src="assets/nevra-reference.jpg" alt="NEVRA campaign portrait in a black hoodie"></div>
-      <div class="about-copy dark-copy">
-        <p class="eyebrow">THE STORY / NEVRA</p>
-        <h1>Створено з тиші,<br>дисципліни та фокусу.</h1>
-        <p>NEVRA — це більше, ніж одяг. Це спосіб мислення, у якому сила починається із самоконтролю, а впевненість — із вірності власним принципам.</p>
-        <p>Ми створюємо одяг в Україні для тих, хто не потребує зайвих слів. Для людей, які щодня працюють над собою, обирають фокус і дозволяють своїм діям говорити голосніше за обіцянки.</p>
-        <p class="eyebrow">SILENCE. STRENGTH. DISCIPLINE.</p>
-      </div>
-    </section>
-    <section class="about-manifesto">
-      <p class="eyebrow">OUR PHILOSOPHY</p>
-      <h2>Ми не слідуємо трендам.<br>Ми формуємо власну ідентичність.</h2>
-      <p><em>Defined by purpose. Driven by vision.</em></p>
-    </section>
-    <section class="about-values" aria-label="Principles">
-      <article class="about-value"><p class="eyebrow">01 / PURPOSE</p><h3>Мета</h3><p>Кожна деталь має сенс. Ми створюємо речі, які підтримують твій шлях і залишають простір для головного.</p></article>
-      <article class="about-value"><p class="eyebrow">02 / STRENGTH</p><h3>Сила</h3><p>Справжня сила — у послідовності, витримці та щоденній роботі над собою.</p></article>
-      <article class="about-value"><p class="eyebrow">03 / DISCIPLINE</p><h3>Дисципліна</h3><p>Менше шуму. Більше фокусу. Дій відповідно до принципів, які обрав.</p></article>
-    </section>
-  </main>
-<div class="about-mobile-new">
-  <section class="amn-hero">
-    <img src="assets/hero-model.jpg" alt="NEVRA campaign">
-    <div class="amn-hero-copy">
-      <p class="amn-kicker">NEVRA</p>
+  <main class="about-new-page">
+  <section class="an-hero">
+    <img src="assets/about-hero-hood.jpg" alt="NEVRA hooded campaign">
+    <div class="an-hero-copy">
       <h1>Built<br>for a quieter<br>stronger you.</h1>
-      <span class="amn-rule"></span>
+      <span class="an-rule"></span>
       <p>APPAREL FOR THOSE<br>WHO KEEP GOING<br>WHEN OTHERS STOP.</p>
     </div>
   </section>
 
-  <section class="amn-split amn-story">
-    <div class="amn-copy">
-      <p class="amn-kicker">ABOUT NEVRA</p>
+  <section class="an-split an-story">
+    <div class="an-copy">
+      <p class="an-kicker">ABOUT NEVRA</p>
       <h2>More than<br>just clothing.</h2>
-      <span class="amn-rule"></span>
+      <span class="an-rule"></span>
       <p>NEVRA is a mindset. A way of thinking. A reminder that real strength comes from self-control, consistency, and discipline.</p>
       <p>We create apparel for people who don't need noise. For those who work on themselves every day, who keep their focus, and who speak through actions.</p>
     </div>
-    <div class="amn-image"><img src="assets/journal-2.jpg" alt="NEVRA campaign"></div>
+    <div class="an-image"><img src="assets/about-seated.jpg" alt="NEVRA campaign"></div>
   </section>
 
-  <section class="amn-split amn-purpose">
-    <div class="amn-image"><img src="assets/journal-5.jpg" alt="NEVRA detail"></div>
-    <div class="amn-copy">
-      <p class="amn-kicker">OUR PURPOSE</p>
+  <section class="an-split an-purpose">
+    <div class="an-image"><img src="assets/about-fabric.jpg" alt="NEVRA fabric detail"></div>
+    <div class="an-copy">
+      <p class="an-kicker">OUR PURPOSE</p>
       <h2>Built by vision.</h2>
-      <span class="amn-rule"></span>
+      <span class="an-rule"></span>
       <p>We don’t follow trends. We build identity. NEVRA exists to connect technology, style and the real world — creating pieces that fit an active, disciplined and independent lifestyle.</p>
     </div>
   </section>
 
-  <section class="amn-split amn-values">
-    <div class="amn-copy">
-      <p class="amn-kicker">OUR VALUES</p>
+  <section class="an-split an-values">
+    <div class="an-copy">
+      <p class="an-kicker">OUR VALUES</p>
       <h2>Discipline.<br>Progress. Freedom.</h2>
-      <span class="amn-rule"></span>
+      <span class="an-rule"></span>
       <p>Every product we make is a part of a bigger idea — a life without limits. We believe in self-improvement, movement, and a future where style and purpose go hand in hand.</p>
-      <div class="amn-values-row">
+      <div class="an-values-row">
         <div><b>♜</b><strong>DISCIPLINE</strong><span>CONTROL TODAY.<br>STRONGER TOMORROW.</span></div>
         <div><b>◇</b><strong>PROGRESS</strong><span>BETTER GEAR.<br>BIGGER GOALS.</span></div>
         <div><b>◎</b><strong>FREEDOM</strong><span>REAL PEOPLE.<br>REAL WORLD.</span></div>
       </div>
     </div>
-    <div class="amn-image"><img src="assets/journal-3.jpg" alt="NEVRA campaign"></div>
+    <div class="an-image"><img src="assets/about-final.jpg" alt="NEVRA campaign finale"></div>
   </section>
-</div>
-
-  <footer class="nevra-footer">
+</main>
+<footer class="nevra-footer">
   <div class="nevra-footer-grid">
     <div class="nevra-footer-brand">
       <a class="nevra-footer-logo" href="./index.html">NEVRA</a>
