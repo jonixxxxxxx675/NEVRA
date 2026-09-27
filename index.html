@@ -23,13 +23,44 @@
 }
 
 @media (max-width:768px){
+  /* MOBILE ONLY — homepage alignment */
+  .home-hero{
+    min-height:0 !important;
+    height:auto !important;
+  }
+  .home-hero picture{
+    display:block;
+    margin:0;
+  }
   .home-hero picture img{
     position:relative;
-    top:4px;
+    top:0;
+    width:100%;
+    height:auto;
+    transform:none;
+  }
+  .site-header{
+    padding-left:10px;
+    padding-right:10px;
+  }
+  .site-header .main-nav,
+  .site-header .main-nav.nav-links,
+  .site-header .nav-links{
+    flex:1 1 auto;
+    width:auto;
+    justify-content:space-between;
+    gap:0;
+    padding-right:8px;
   }
   .site-header .main-nav a:nth-child(4),
   .site-header .main-nav a:nth-child(5){
-    transform:translateX(100px);
+    transform:none;
+  }
+  .site-header .cart-trigger{
+    flex:0 0 40px;
+    width:40px;
+    height:38px;
+    min-height:38px;
   }
 }
 </style>
@@ -164,7 +195,7 @@
 @media(max-width:768px){
   .home-hero picture img{width:100%;height:auto;object-fit:cover;object-position:center top}
   .home-hero .hero-shade{background:linear-gradient(180deg,rgba(0,0,0,.03),rgba(0,0,0,.2) 75%,rgba(0,0,0,.45))}
-  .hero-action{left:7%;bottom:8%}
+  .hero-action{left:7%;bottom:7%}
   .home-hero .outline-button{font-size:9px;padding:10px 14px;gap:12px}
   .home-manifesto{gap:14px;padding:18px 14px 20px}
   .home-manifesto>span{width:12%;flex-basis:48px}
