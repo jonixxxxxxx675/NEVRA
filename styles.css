@@ -554,3 +554,12 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:22px;fl
     top:150px!important;
   }
 }
+
+@media (max-width:768px){.home-hero.hero-section::before{content:none !important;display:none !important;}}
+
+@media (max-width:768px){
+  body:has(#home) .site-header .main-nav a:nth-child(4){
+    position:relative !important;
+    left:165px !important;
+  }
+}
