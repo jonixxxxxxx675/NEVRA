@@ -433,3 +433,50 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:22px;fl
   .journal-card-body>p:not(.journal-date){font-size:12px;line-height:1.55}
   .journal-read{margin-top:17px;font-size:10px}
 }
+
+/* MOBILE HERO ONLY — final proportions/layout; desktop untouched */
+@media (max-width: 768px){
+  .home-hero.hero-section{
+    position:relative;
+    width:100%;
+    height:150vw;
+    min-height:520px;
+    max-height:620px;
+    overflow:hidden;
+    background:#050608;
+  }
+  .home-hero.hero-section > picture{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+  }
+  .home-hero.hero-section > picture .hero-model{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center top;
+    transform:none;
+  }
+  .home-hero .hero-shade{
+    background:linear-gradient(90deg,rgba(8,10,13,.42),rgba(8,10,13,.12) 60%,rgba(8,10,13,.05)),linear-gradient(0deg,rgba(8,10,13,.38),transparent 45%);
+  }
+  .home-hero .hero-action{
+    position:absolute;
+    left:20px;
+    right:20px;
+    bottom:24px;
+    z-index:3;
+    display:flex;
+    justify-content:flex-start;
+  }
+  .home-hero .hero-action .outline-button{
+    min-height:46px;
+    padding:0 24px;
+    white-space:nowrap;
+  }
+}
+@media (max-width:480px){
+  .home-hero.hero-section{height:150vw;min-height:500px;max-height:590px;}
+  .home-hero .hero-action{left:20px;right:20px;bottom:22px;}
+}

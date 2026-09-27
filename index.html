@@ -25,19 +25,24 @@
 @media (max-width:768px){
   /* MOBILE ONLY — homepage alignment */
   .home-hero{
-    min-height:0 !important;
-    height:auto !important;
+    height:min(145vw,650px) !important;
+    min-height:500px !important;
+    max-height:650px !important;
+    overflow:hidden;
   }
   .home-hero picture{
     display:block;
     margin:0;
   }
   .home-hero picture img{
-    position:relative;
-    top:0;
+    position:absolute;
+    inset:0;
     width:100%;
-    height:auto;
-    transform:none;
+    height:100%;
+    object-fit:cover;
+    object-position:center top;
+    transform:translateY(22px) scale(1.04);
+    transform-origin:center top;
   }
   .site-header{
     padding-left:10px;
@@ -67,7 +72,7 @@
 <style id="nevra-01-desktop-white">@media (min-width: 901px){.nevra-01-desktop-white{color:#fff !important;}}</style></style></head><body>
 <header class="site-header navbar"><nav class="main-nav nav-links"><a href="#shop">Shop</a><a href="./about.html">About</a><a href="./journal.html">Journal</a><a href="./tracking.html">Track order</a><a href="./contact.html">Contact</a></nav><button class="cart-trigger" id="cart-open" type="button"><span class="bag-icon"></span><span class="bag-label">Bag</span><span class="cart-count" id="cart-count">0</span></button></header>
 <main id="home" class="home-reference">
-<section class="hero hero-section home-hero"><picture><source media="(max-width: 768px)" srcset="assets/hero-model-new-main.png"><img class="hero-model" src="assets/hero-model-new-main.png" alt="NEVRA campaign"></picture><div class="hero-shade"></div><div class="hero-action"><a class="outline-button" href="#shop">SHOP NOW <span>→</span></a></div></section>
+<section class="hero hero-section home-hero"><picture><source media="(max-width: 768px)" srcset="assets/hero-model-new.png"><img class="hero-model" src="assets/hero-model-new-main.png" alt="NEVRA campaign"></picture><div class="hero-shade"></div><div class="hero-action"><a class="outline-button" href="#shop">SHOP NOW <span>→</span></a></div></section>
 
 <section class="manifesto home-manifesto"><span></span><div><h2>We don’t follow trends. We build identity.</h2><p>DEFINED BY PURPOSE. DRIVEN BY VISION.</p></div><span></span></section>
 
