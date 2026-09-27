@@ -488,15 +488,7 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:22px;fl
     transform-origin:center top;
     object-position:center top;
   }
-  .home-hero.hero-section::before{
-    content:"";
-    position:absolute;
-    left:0; top:0;
-    width:230px; height:590px;
-    background:linear-gradient(180deg,rgba(5,6,8,.97) 0%,rgba(5,6,8,.94) 58%,rgba(5,6,8,.72) 100%);
-    z-index:2;
-    pointer-events:none;
-  }
+  .home-hero.hero-section::before{ content:none !important; }
   .mobile-brand-block{
     display:flex;
     position:absolute;
@@ -559,6 +551,6 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:22px;fl
     margin-left:auto !important;
   }
   body:has(#home) .home-hero .mobile-brand-block{
-    top:220px !important;
+    top:150px!important;
   }
 }
