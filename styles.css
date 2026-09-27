@@ -70,11 +70,6 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:22px;fl
     white-space: nowrap;
   }
 
-  .site-header .main-nav a:nth-child(4),
-  .site-header .main-nav a:nth-child(5) {
-    transform: translateX(55px);
-  }
-
   .site-header .cart-trigger {
     flex: 0 0 46px;
     width: 46px;
