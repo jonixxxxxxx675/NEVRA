@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#050608">
+  <meta name="description" content="NEVRA — Frequently Asked Questions.">
+  <title>NEVRA — FAQ</title>
+  <link rel="stylesheet" href="./styles.css">
+  <style>
+    .faq-page{background:#050608;color:#f2f2f4;min-height:100vh}
+    .faq-main{position:relative;min-height:100svh;box-sizing:border-box;padding:82px 20px 390px;background:#050608 url("./assets/contact-bg.jpg") center center/cover no-repeat;overflow:hidden}
+    .faq-main:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.14),rgba(0,0,0,.18) 45%,rgba(0,0,0,.42));pointer-events:none}
+    .faq-head,.faq-list{position:relative;z-index:1}
+    .faq-head{text-align:center;max-width:760px;margin:0 auto 48px}
+    .faq-logo{width:132px;height:144px;object-fit:cover;object-position:center;display:block;margin:0 auto 18px;mix-blend-mode:screen}
+    .faq-head h1{margin:0;font:400 clamp(48px,6vw,76px)/1 var(--serif);letter-spacing:.28em;text-indent:.28em}
+    .faq-head p{margin:14px 0 0;color:#d2d2d6;font-size:12px;letter-spacing:.28em;text-transform:uppercase}
+    .faq-list{width:min(820px,100%);margin:0 auto;display:grid;gap:10px}
+    .faq-item{border:1px solid rgba(245,245,248,.72);background:rgba(0,0,0,.48);backdrop-filter:blur(2px)}
+    .faq-item summary{display:grid;grid-template-columns:54px 1fr 28px;align-items:center;min-height:82px;padding:0 22px;cursor:pointer;list-style:none;color:#f4f4f5;letter-spacing:.17em;text-transform:uppercase;font-size:12px}
+    .faq-item summary::-webkit-details-marker{display:none}
+    .faq-number{color:#bdbdc2;font-size:11px}
+    .faq-plus{font-size:27px;font-weight:300;line-height:1;text-align:right}
+    .faq-item[open] .faq-plus{transform:rotate(45deg)}
+    .faq-answer{padding:0 54px 22px 76px;color:#c3c4c8;font-size:12px;line-height:1.7;max-width:720px}
+
+    .faq-page .site-header{position:absolute;background:transparent}
+    .faq-page .site-header .wordmark{color:#f3f3f4}
+    .faq-page .main-nav a{color:#ececef}
+    .faq-page .cart-trigger{background:transparent;border-color:rgba(255,255,255,.45);color:#fff}
+
+    .faq-page .nevra-footer{margin-top:-390px;min-height:390px;background:rgba(0,0,0,.76)!important;backdrop-filter:blur(3px)}
+    .faq-page .nevra-footer:before{background:linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.52))}
+    .faq-page .nevra-footer:after{opacity:.1}
+
+    @media(max-width:768px){
+      .faq-main{padding:74px 16px 310px;background-position:center center}
+      .faq-head{margin-bottom:30px}
+      .faq-logo{width:100px;height:110px;margin-bottom:10px}
+      .faq-head h1{font-size:39px;letter-spacing:.25em;text-indent:.25em}
+      .faq-head p{font-size:8px;letter-spacing:.22em}
+      .faq-list{gap:8px}
+      .faq-item summary{grid-template-columns:38px 1fr 24px;min-height:62px;padding:0 14px;font-size:9px;letter-spacing:.13em}
+      .faq-number{font-size:9px}
+      .faq-plus{font-size:23px}
+      .faq-answer{padding:0 18px 17px 52px;font-size:10px}
+      .faq-page .nevra-footer{margin-top:-310px;min-height:310px}
+    }
+  </style>
+</head>
+<body class="faq-page">
+<header class="site-header navbar">
+  <a class="wordmark" href="./index.html">NEVRA</a>
+  <nav class="main-nav nav-links">
+    <a href="./index.html#shop">Shop</a>
+    <a href="./about.html">About</a>
+    <a href="./journal.html">Journal</a>
+    <a href="./contact.html">Contact</a>
+  </nav>
+  <a class="cart-trigger" href="./checkout.html" aria-label="Bag"><span class="bag-icon"></span><span class="bag-label">Bag</span></a>
+</header>
+
+<main class="faq-main">
+  <section class="faq-head">
+    <img class="faq-logo" src="./assets/faq-logo.jpg" alt="NEVRA">
+    <h1>FAQ</h1>
+    <p>Frequently Asked Questions</p>
+  </section>
+
+  <section class="faq-list" aria-label="Frequently Asked Questions">
+    <details class="faq-item">
+      <summary><span class="faq-number">01</span><span>Orders &amp; Payment</span><span class="faq-plus">+</span></summary>
+      <div class="faq-answer">Orders are confirmed after payment. Your order details and next steps are provided after the order is received.</div>
+    </details>
+    <details class="faq-item">
+      <summary><span class="faq-number">02</span><span>Shipping &amp; Delivery</span><span class="faq-plus">+</span></summary>
+      <div class="faq-answer">NEVRA offers worldwide delivery. Delivery timing and availability are confirmed with your order.</div>
+    </details>
+    <details class="faq-item">
+      <summary><span class="faq-number">03</span><span>Returns &amp; Refunds</span><span class="faq-plus">+</span></summary>
+      <div class="faq-answer">For a return or refund request, contact NEVRA with your order number and the reason for the request.</div>
+    </details>
+    <details class="faq-item">
+      <summary><span class="faq-number">04</span><span>Products &amp; Sizing</span><span class="faq-plus">+</span></summary>
+      <div class="faq-answer">Choose your usual size and use the product measurements shown on the relevant product page when available.</div>
+    </details>
+    <details class="faq-item">
+      <summary><span class="faq-number">05</span><span>Care &amp; Materials</span><span class="faq-plus">+</span></summary>
+      <div class="faq-answer">Material and construction information is provided on product pages. Follow the care instructions supplied with each item.</div>
+    </details>
+    <details class="faq-item">
+      <summary><span class="faq-number">06</span><span>Account &amp; Support</span><span class="faq-plus">+</span></summary>
+      <div class="faq-answer">For questions about products, orders or delivery, contact NEVRA directly through the Contact page.</div>
+    </details>
+  </section>
+</main>
+
+<footer class="nevra-footer">
+  <div class="nevra-footer-grid">
+    <div class="nevra-footer-brand">
+      <a class="nevra-footer-logo" href="./index.html">NEVRA</a><span class="nevra-footer-rule"></span>
+      <p class="nevra-footer-slogan">TECHNOLOGY.<br>STYLE.<br>REAL WORLD.</p>
+      <p class="nevra-footer-copy">Premium products.<br>Fast delivery.<br>Worldwide.</p>
+      <div class="nevra-footer-socials" aria-label="Social media">
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" class="fill-dot"/></svg></a>
+        <a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4v10.1a4.4 4.4 0 1 1-3.2-4.2v3a1.6 1.6 0 1 0 1.1 1.5V4h2.1c.4 1.8 1.6 3.1 3.4 3.6v2.2c-1.4-.2-2.6-.8-3.4-1.7V4H14Z"/></svg></a>
+        <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="m10 9 5 3-5 3V9Z" class="fill-shape"/></svg></a>
+      </div>
+    </div>
+    <div class="nevra-footer-column"><h3>SHOP</h3><span class="nevra-footer-rule"></span><a href="./classic.html">All Products</a><a href="./classic.html">Apparel</a><a href="./accessories.html">Accessories</a><a href="./sale.html">New Arrivals</a></div>
+    <div class="nevra-footer-column"><h3>SUPPORT</h3><span class="nevra-footer-rule"></span><a href="./tracking.html">Order Tracking</a><a href="./support.html#shipping">Shipping</a><a href="./support.html#returns">Returns &amp; Refunds</a><a href="./support.html#size-guide">Size Guide</a><a href="./faq.html" aria-current="page">FAQ</a><a href="./contact.html">Contact Us</a></div>
+    <div class="nevra-footer-column"><h3>ABOUT</h3><span class="nevra-footer-rule"></span><a href="./about.html">Our Story</a><a href="./support.html#materials">Materials</a><a href="./support.html#sustainability">Sustainability</a><a href="./journal.html">Journal</a></div>
+  </div>
+  <div class="nevra-footer-bottom">
+    <div class="nevra-footer-legal"><p>© 2026 NEVRA. All rights reserved.</p><p>Premium gear. Global delivery. Real people.</p></div>
+    <div class="nevra-footer-payments" aria-label="Payment methods"><span class="payment visa">VISA</span><span class="payment mastercard"><i></i><i></i></span><span class="payment apple"><b>Pay</b></span><span class="payment gpay">G<span>Pay</span></span><span class="payment paypal"><b>P</b> PayPal</span></div>
+    <button class="nevra-footer-language" type="button" aria-label="Language: English"><svg class="globe-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.4 3.8 5.4 3.8 9S14.6 18.6 12 21M12 3c-2.6 2.4-3.8 5.4-3.8 9s1.2 6.6 3.8 9"/></svg><span>EN</span><span class="chevron">⌄</span></button>
+  </div>
+</footer>
+</body>
+</html>
