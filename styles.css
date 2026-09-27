@@ -585,3 +585,9 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:22px;fl
     object-position:center center !important;
   }
 }
+
+@media (max-width:768px){
+  body:has(#home) .nevra-01-desktop-white{
+    color:#fff !important;
+  }
+}
