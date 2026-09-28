@@ -25,17 +25,25 @@
     img.alt = alt || '';
   }
 
+  function cartQuantity(p, selectedSize) {
+    return cart
+      .filter(item => item.productId === p.id && item.size === selectedSize)
+      .reduce((sum, item) => sum + Number(item.qty || 0), 0);
+  }
+
   function maxPurchaseQuantity(p) {
+    if (!size) return 0;
     const stock = window.NEVRA_PRODUCT_API.stock(p.id, size);
-    return stock == null ? 99 : Math.max(0, stock);
+    return Math.max(0, stock - cartQuantity(p, size));
   }
 
   function syncQuantity() {
     const max = maxPurchaseQuantity(product());
-    quantity = Math.min(quantity, Math.max(1, max || 1));
+    quantity = max > 0 ? Math.min(quantity, max) : 0;
     $('#quantity-value').textContent = quantity;
     $('#quantity-minus').disabled = quantity <= 1;
-    $('#quantity-plus').disabled = max !== null && quantity >= max;
+    $('#quantity-plus').disabled = max <= quantity;
+    $('#detail-add').disabled = !size || max <= 0;
   }
 
   function renderSizes(p) {
@@ -44,7 +52,7 @@
     if (!holder) return;
 
     holder.innerHTML = availableSizes.map(itemSize => {
-      const available = window.NEVRA_PRODUCT_API.available(p.id, itemSize);
+      const available = window.NEVRA_PRODUCT_API.available(p.id, itemSize) && (window.NEVRA_PRODUCT_API.stock(p.id, itemSize) - cartQuantity(p, itemSize) > 0);
       const selected = itemSize === size;
       return `<button class="product-size-option" type="button" data-size="${itemSize}" aria-pressed="${selected}"${available ? '' : ' disabled'}>${itemSize}</button>`;
     }).join('');
@@ -56,7 +64,8 @@
         holder.querySelectorAll('.product-size-option').forEach(item => {
           item.setAttribute('aria-pressed', String(item === button));
         });
-        $('#detail-message').textContent = 'Size ' + size + ' selected.';
+        const available = maxPurchaseQuantity(p);
+        $('#detail-message').textContent = available > 0 ? 'Size ' + size + ' selected. ' + available + ' available.' : 'This size is currently unavailable.';
         syncQuantity();
       });
     });
@@ -152,7 +161,7 @@
 
   $('#quantity-plus').addEventListener('click', () => {
     const max = maxPurchaseQuantity(product());
-    if (max !== null && quantity >= max) return;
+    if (max <= 0 || quantity >= max) return;
     quantity += 1;
     syncQuantity();
   });
@@ -167,7 +176,7 @@
 
     const p = product();
     const max = maxPurchaseQuantity(p);
-    if (!window.NEVRA_PRODUCT_API.available(p.id, size) || max === 0) {
+    if (!window.NEVRA_PRODUCT_API.available(p.id, size) || max <= 0 || quantity <= 0) {
       $('#detail-message').textContent = 'This size is currently unavailable.';
       return;
     }
@@ -175,8 +184,8 @@
     const existing = cart.find(item => item.productId === p.id && item.size === size);
     const nextQuantity = (existing ? Number(existing.qty) : 0) + quantity;
 
-    if (max !== null && nextQuantity > max) {
-      $('#detail-message').textContent = 'Only ' + max + ' available for this size.';
+    if (nextQuantity > window.NEVRA_PRODUCT_API.stock(p.id, size)) {
+      $('#detail-message').textContent = 'Not enough stock for this size.';
       return;
     }
 

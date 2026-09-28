@@ -130,7 +130,7 @@ const title=i=>i.title||productFor(i)?.name||"NEVRA Product";
 const sum=cart.reduce((t,i)=>t+i.qty*Number(i.price||productFor(i)?.price||0),0);
 document.querySelector("#summary-items").innerHTML=cart.length?cart.map(i=>'<article class="summary-item"><img src="'+image(i)+'" alt=""><div><strong>'+title(i)+'</strong><small>Size '+i.size+' · Quantity '+i.qty+'</small></div><strong>'+money(i.qty*Number(i.price||productFor(i)?.price||0))+'</strong></article>').join(""):'<p class="checkout-empty">Ваш кошик порожній.</p>';
 document.querySelector("#subtotal").textContent=money(sum);document.querySelector("#total").textContent=money(sum);
-document.querySelector("#checkout-form").addEventListener("submit",e=>{e.preventDefault();if(!cart.length){alert("Ваш кошик порожній.");return}localStorage.removeItem("nevra-cart");document.querySelector("#checkout-form").style.display="none";document.querySelector("#success").classList.add("show")});
+document.querySelector("#checkout-form").addEventListener("submit",e=>{e.preventDefault();if(!cart.length){alert("Ваш кошик порожній.");return}const invalid=cart.find(i=>{const p=productFor(i);return !p||!window.NEVRA_PRODUCT_API.available(i.productId,i.size)||Number(i.qty||0)>window.NEVRA_PRODUCT_API.stock(i.productId,i.size)});if(invalid){alert("Один із товарів або його кількість більше недоступні. Поверніться до товару та оновіть кошик.");return}localStorage.removeItem("nevra-cart");document.querySelector("#checkout-form").style.display="none";document.querySelector("#success").classList.add("show")});
 })();
 </script>
 </body></html>
