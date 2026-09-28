@@ -7,7 +7,7 @@
 <title>NEVRA — RETURN & REFUNDS</title>
 <link rel="stylesheet" href="./styles.css">
 <style>
-  .returns-page{background:#050505;color:#f3f3f1;min-height:100vh;overflow:hidden}
+  .returns-page{background:#050505;color:#f3f3f1;min-height:100vh;overflow-x:hidden;overflow-y:auto}
   .returns-hero{position:relative;width:100%;height:min(720px,72vw);min-height:500px;background:#050505;overflow:hidden}
   .returns-hero img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.02)}
   .returns-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.34) 42%,rgba(0,0,0,.04) 72%,rgba(0,0,0,.12) 100%)}
@@ -36,7 +36,6 @@
   .returns-page .nevra-footer{background:#050505;color:#eee;border-top:1px solid rgba(255,255,255,.18)}
   .returns-desktop-back{display:none;}
   @media (min-width:901px){
-    .returns-hero{height:min(640px,64vw);min-height:460px}
     .returns-desktop-back{display:inline-block;
       position:absolute;
       top:28px;
@@ -72,13 +71,16 @@
     .returns-visual-5{background-image:url('./assets/returns-05.png');}
   }
   @media (max-width:900px){
+    .returns-sections{padding-top:14px;padding-bottom:18px}
+    .returns-row{margin-bottom:14px;border-top:1px solid rgba(255,255,255,.22);border-bottom:1px solid rgba(255,255,255,.22)}
+    .returns-row:last-child{margin-bottom:0}
     .returns-hero{height:520px;min-height:520px;background:#050505 url('./assets/returns-hero.png') center/cover no-repeat}
     .returns-hero img{position:absolute;inset:0;width:100%;height:100%;object-position:center center;object-fit:cover;display:block;opacity:1}
     .returns-hero-copy{left:7%;right:7%;bottom:9%;max-width:none}
     .returns-kicker{font-size:10px;letter-spacing:.25em;margin-bottom:18px}
     .returns-hero h1{font-size:56px;line-height:.94;margin-bottom:22px}
     .returns-hero p{font-size:15px;max-width:280px}
-    .returns-row{grid-template-columns:72px 1fr;min-height:0}
+    .returns-row{grid-template-columns:72px minmax(0,1fr) 30%;min-height:220px}
     .returns-index{padding:30px 10px 30px 18px;border-right:1px solid rgba(255,255,255,.22)}
     .returns-index strong{font-size:34px}
     .returns-index span{width:28px;margin:10px 0}
@@ -86,9 +88,22 @@
     .returns-content{padding:30px 24px 34px}
     .returns-content h2{font-size:30px;margin-bottom:14px}
     .returns-content p,.returns-list{font-size:15px;line-height:1.55}
-    .returns-visual{display:none}
+    .returns-visual{display:block;min-height:220px;filter:none;background-position:center;background-size:cover;background-repeat:no-repeat}
+    .returns-visual-1{background-image:url('./assets/returns-01.png')}
+    .returns-visual-2{background-image:url('./assets/returns-02.png')}
+    .returns-visual-3{background-image:url('./assets/returns-03.png')}
+    .returns-visual-4{background-image:url('./assets/returns-04.png')}
+    .returns-visual-5{background-image:url('./assets/returns-05.png')}
     .returns-cta{width:100%;box-sizing:border-box;margin-top:24px}
     .returns-page .nevra-footer{margin-top:0}
+  }
+  @media (max-width:390px){
+    .returns-row{grid-template-columns:64px minmax(0,1fr) 27%;min-height:210px}
+    .returns-index{padding-left:14px;padding-right:8px}
+    .returns-content{padding-left:18px;padding-right:14px}
+    .returns-content h2{font-size:27px}
+    .returns-content p,.returns-list{font-size:14px}
+    .returns-visual{min-height:210px}
   }
 </style>
 </head>
