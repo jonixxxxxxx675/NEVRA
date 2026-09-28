@@ -591,22 +591,3 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:22px;fl
     color:#fff !important;
   }
 }
-
-/* MOBILE ONLY — inner pages use Back instead of the menu. Desktop unchanged. */
-.mobile-page-back{display:none;}
-@media (max-width:768px){
-  body.contact-page .site-header .main-nav,
-  body.tracking-page .site-header .main-nav,
-  body.journal-page .site-header .main-nav{display:none !important;}
-  body.contact-page .site-header .mobile-page-back,
-  body.tracking-page .site-header .mobile-page-back,
-  body.journal-page .site-header .mobile-page-back{
-    display:inline-block !important;
-    color:#fff;
-    font-size:9px;
-    line-height:1;
-    letter-spacing:.16em;
-    white-space:nowrap;
-    text-transform:uppercase;
-  }
-}
