@@ -121,12 +121,14 @@
   </div>
 </footer>
 
+<script src="./products.js" defer></script>
 <script>
 (()=>{const cart=JSON.parse(localStorage.getItem("nevra-cart")||"[]"),money=v=>"₴"+Number(v).toLocaleString("uk-UA");
-const image=i=>i.type==="hoodie"?"assets/hoodie-1.jpg":(i.color==="Khaki"?"assets/shirt-khaki.jpg":"assets/shirt-black.jpg");
-const title=i=>i.type==="hoodie"?"NEVRA Essential Hoodie":i.color+" T-shirt";
-const sum=cart.reduce((t,i)=>t+i.qty*Number(i.price||1200),0);
-document.querySelector("#summary-items").innerHTML=cart.length?cart.map(i=>'<article class="summary-item"><img src="'+image(i)+'" alt=""><div><strong>'+title(i)+'</strong><small>Size '+i.size+' · Quantity '+i.qty+'</small></div><strong>'+money(i.qty*Number(i.price||1200))+'</strong></article>').join(""):'<p class="checkout-empty">Ваш кошик порожній.</p>';
+const productFor=i=>window.NEVRA_PRODUCT_API.get(i.productId);
+const image=i=>i.image||productFor(i)?.images?.[0]||"assets/shirt-black.jpg";
+const title=i=>i.title||productFor(i)?.name||"NEVRA Product";
+const sum=cart.reduce((t,i)=>t+i.qty*Number(i.price||productFor(i)?.price||0),0);
+document.querySelector("#summary-items").innerHTML=cart.length?cart.map(i=>'<article class="summary-item"><img src="'+image(i)+'" alt=""><div><strong>'+title(i)+'</strong><small>Size '+i.size+' · Quantity '+i.qty+'</small></div><strong>'+money(i.qty*Number(i.price||productFor(i)?.price||0))+'</strong></article>').join(""):'<p class="checkout-empty">Ваш кошик порожній.</p>';
 document.querySelector("#subtotal").textContent=money(sum);document.querySelector("#total").textContent=money(sum);
 document.querySelector("#checkout-form").addEventListener("submit",e=>{e.preventDefault();if(!cart.length){alert("Ваш кошик порожній.");return}localStorage.removeItem("nevra-cart");document.querySelector("#checkout-form").style.display="none";document.querySelector("#success").classList.add("show")});
 })();
