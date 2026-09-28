@@ -98,7 +98,7 @@
 
 <section class="collection home-collection" id="shop"><div class="section-heading"><p class="eyebrow">THE ESSENTIALS</p><h2><span class="nevra-01-desktop-white">NEVRA / 01</span></h2><p>Minimal streetwear, for those who move in silence.</p></div><div class="reference-product-grid">
 <a class="reference-card" href="./collection-02.html"><div class="reference-media"><img src="assets/shirt-black.jpg" alt="NEVRA T-Shirt"></div><div class="reference-card-label">COLLECTION</div><div class="reference-card-link">Explore <span>→</span></div></a>
-<a class="reference-card" href="./accessories.html"><div class="reference-media"><img src="assets/suit-5.png" alt="NEVRA Cargo Pants"></div><div class="reference-card-label">ACCESSORIES</div><div class="reference-card-link">Explore <span>→</span></div></a>
+<a class="reference-card" href="./accessories.html"><div class="reference-media"><img src="assets/suit-5.png" alt="NEVRA Accessories"></div><div class="reference-card-label">ACCESSORIES</div><div class="reference-card-link">Explore <span>→</span></div></a>
 </div></section>
 
 <section class="reference-about"><div class="reference-about-image"><img src="assets/hoodie-2.jpg" alt="NEVRA model"></div><div class="reference-about-copy"><p class="eyebrow">ABOUT NEVRA</p><h2>More than<br>just clothing.</h2><p>NEVRA is a mindset. A way of thinking. A reminder that real strength comes from self-control, consistency, and discipline.</p><p>We create apparel for people who don’t need noise. For those who work on themselves every day, who keep their focus, and who speak through actions.</p><a class="outline-button" href="./about.html">OUR STORY <span>→</span></a></div></section>
@@ -215,6 +215,10 @@
 .reference-journal-copy .outline-button{align-self:flex-start;margin-top:4px}
 .reference-journal-image{min-height:280px;overflow:hidden}
 .reference-journal-image img{display:block;width:100%;height:100%;object-fit:cover}
+@media(min-width:769px){
+  .reference-product-grid{gap:18px}
+  .reference-card{aspect-ratio:1/0.9}
+}
 @media(max-width:768px){
   .home-hero picture img{width:100%;height:auto;object-fit:cover;object-position:center top}
   .home-hero .hero-shade{background:linear-gradient(180deg,rgba(0,0,0,.03),rgba(0,0,0,.2) 75%,rgba(0,0,0,.45))}
