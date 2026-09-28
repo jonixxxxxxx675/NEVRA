@@ -615,3 +615,54 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:22px;fl
 
 /* Product ID display */
 .product-id{display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#888b91;margin:0 0 18px}.hoodie-product-id{margin:-10px 0 18px}.product-detail-info .product-id{line-height:1.4}@media(max-width:768px){.product-id{font-size:9px;letter-spacing:.1em;margin-bottom:15px}.hoodie-product-id{margin:-7px 0 16px}}
+
+/* CART PANEL — light controls/text + checkout aligned with the artwork button */
+.cart-panel{
+  color:#fff;
+}
+.cart-panel .cart-head{
+  border-bottom-color:rgba(255,255,255,.22);
+}
+.cart-panel .cart-head .eyebrow,
+.cart-panel .cart-head h2,
+.cart-panel .close-cart,
+.cart-panel .cart-item,
+.cart-panel .cart-item small,
+.cart-panel .cart-remove,
+.cart-panel .empty-cart,
+.cart-panel .cart-total,
+.cart-panel .cart-total span,
+.cart-panel .cart-total strong,
+.cart-panel .checkout-note{
+  color:#fff !important;
+}
+.cart-panel .cart-item{
+  border-bottom-color:rgba(255,255,255,.18);
+}
+.cart-panel .cart-bottom{
+  position:absolute;
+  left:12%;
+  right:12%;
+  bottom:8.1%;
+  border-top:0;
+  padding-top:0;
+}
+.cart-panel .cart-total{
+  margin-bottom:14px;
+}
+.cart-panel .cart-bottom .solid-button{
+  width:100%;
+  min-height:52px;
+  background:rgba(0,0,0,.16);
+  border:1px solid rgba(255,255,255,.9);
+  color:#fff;
+  box-shadow:none;
+}
+.cart-panel .cart-bottom .solid-button:hover{
+  background:rgba(255,255,255,.08);
+  color:#fff;
+  border-color:#fff;
+}
+.cart-panel .checkout-note{
+  margin:10px 0 0;
+}
