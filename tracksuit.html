@@ -64,5 +64,14 @@
     <button class="nevra-footer-language" type="button" aria-label="Language: English"><svg class="globe-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.4 3.8 5.4 3.8 9S14.6 18.6 12 21M12 3c-2.6 2.4-3.8 5.4-3.8 9s1.2 6.6 3.8 9"/></svg><span>EN</span><span class="chevron">⌄</span></button>
   </div>
 </footer>
+
+  <div class="cart-backdrop" id="cart-backdrop" hidden></div>
+  <aside class="cart-panel" id="cart-panel" aria-label="Shopping cart" aria-hidden="true">
+    <div class="cart-head"><div><p class="eyebrow">YOUR SELECTION</p><h2>Your cart <span id="cart-heading-count">(0)</span></h2></div><button class="close-cart" id="cart-close" type="button">×</button></div>
+    <div id="cart-items" class="cart-items"><p class="empty-cart">Your cart is empty.</p></div>
+    <div class="cart-bottom"><div class="cart-total"><span>Subtotal</span><strong id="cart-total">₴0</strong></div><button class="solid-button" id="checkout-button" type="button">Continue to checkout</button></div>
+  </aside>
+  <div class="toast" id="toast"></div>
+
 <script src="./products.js" defer></script>
   <script src="./tracksuit.js" defer></script></body></html>
