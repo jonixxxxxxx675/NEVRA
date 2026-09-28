@@ -59,7 +59,39 @@
     openCart();
   });
 
+
+  const money = value => '₴' + Number(value || 0).toLocaleString('uk-UA');
+  function renderCartDrawer(){
+    const count = cart.reduce((sum,item)=>sum + Number(item.qty || 0),0);
+    const total = cart.reduce((sum,item)=>sum + Number(item.qty || 0) * Number(item.price || 0),0);
+    const countEl = document.querySelector('#cart-count');
+    const headingEl = document.querySelector('#cart-heading-count');
+    const totalEl = document.querySelector('#cart-total');
+    const itemsEl = document.querySelector('#cart-items');
+    if(countEl) countEl.textContent = count;
+    if(headingEl) headingEl.textContent = '(' + count + ')';
+    if(totalEl) totalEl.textContent = money(total);
+    if(itemsEl){
+      itemsEl.innerHTML = cart.length ? cart.map((item,index)=>`
+        <article class="cart-item">
+          <img src="${item.image || ''}" alt="">
+          <div class="cart-item-info">
+            <strong>${item.title || ''}</strong>
+            <span>${item.size ? 'Size ' + item.size + ' · ' : ''}${item.qty || 1} × ${money(item.price)}</span>
+          </div>
+          <button class="cart-remove" type="button" data-remove="${index}" aria-label="Remove item">×</button>
+        </article>`).join('') : '<p class="empty-cart">Your cart is empty.</p>';
+      itemsEl.querySelectorAll('[data-remove]').forEach(btn=>{
+        btn.addEventListener('click',()=>{
+          cart.splice(Number(btn.dataset.remove),1);
+          localStorage.setItem(storageKey, JSON.stringify(cart));
+          renderCartDrawer();
+        });
+      });
+    }
+  }
   function openCart(){
+    renderCartDrawer();
     const panel = document.querySelector('#cart-panel');
     const backdrop = document.querySelector('#cart-backdrop');
     if(panel){ panel.classList.add('is-open'); panel.setAttribute('aria-hidden','false'); }
@@ -74,5 +106,12 @@
     document.body.classList.remove('cart-open');
   }
   $('#cart-open').addEventListener('click', (e) => { e.preventDefault(); openCart(); });
+  $('#cart-close').addEventListener('click', closeCart);
+  $('#cart-backdrop').addEventListener('click', closeCart);
+  $('#checkout-button').addEventListener('click', () => {
+    if (!cart.length) return;
+    window.location.href = './checkout.html';
+  });
+  renderCartDrawer();
   render();
 })();
