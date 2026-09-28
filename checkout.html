@@ -38,6 +38,23 @@
     background-repeat:no-repeat;
   }
 }
+
+.payment-methods{display:grid;gap:9px;margin-bottom:12px}
+.payment-method{width:100%;display:flex;align-items:center;justify-content:space-between;text-align:left;padding:14px 15px;border:1px solid rgba(255,255,255,.42);background:rgba(0,0,0,.30);color:#fff;cursor:pointer;font:inherit}
+.payment-method span:first-child{display:grid;gap:4px}.payment-method strong{font-size:12px;font-weight:500}.payment-method small{font-size:10px;color:rgba(255,255,255,.68)}
+.payment-method .payment-check{width:18px;height:18px;border:1px solid rgba(255,255,255,.65);display:grid;place-items:center;font-size:11px;opacity:0}
+.payment-method.is-selected{border-color:#fff;background:rgba(255,255,255,.09)}.payment-method.is-selected .payment-check{opacity:1}
+.card-modal{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;padding:20px}
+.card-modal.is-open{display:flex}.card-modal-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.72);backdrop-filter:blur(6px)}
+.card-modal-dialog{position:relative;z-index:1;width:min(500px,100%);padding:30px;background:#111318;border:1px solid rgba(255,255,255,.42);color:#fff;box-shadow:0 20px 70px rgba(0,0,0,.5)}
+.card-modal-close{position:absolute;right:14px;top:10px;border:0;background:transparent;color:#fff;font-size:28px;cursor:pointer;line-height:1}
+.card-modal-dialog h2{font:400 34px/1.1 var(--serif);margin:0 0 8px}.card-modal-note{font-size:12px;color:rgba(255,255,255,.68);margin:0 0 22px}
+.card-fields{display:grid;gap:14px}.card-fields label{display:grid;gap:7px;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.78)}
+.card-fields input{height:47px;width:100%;box-sizing:border-box;border:1px solid rgba(255,255,255,.42);background:#08090b;color:#fff;padding:0 12px;font:400 13px var(--sans);outline:none}
+.card-fields input:focus{border-color:#fff}.card-error{min-height:18px;color:#ffb4b4;font-size:11px;margin:10px 0 0}.card-confirm{width:100%;margin-top:8px;background:#fff;color:#111318;border-color:#fff}
+@media(max-width:520px){
+  .payment-method{padding:13px 12px}.card-modal{padding:12px}.card-modal-dialog{padding:25px 17px}.card-modal-dialog h2{font-size:30px}
+}
 </style></head>
 <body class="light-page checkout-page">
 <header class="site-header">
@@ -52,8 +69,42 @@
 <form class="checkout-form" id="checkout-form">
 <div class="checkout-section"><h2>Контактні дані</h2><div class="checkout-grid"><label>Ім'я<input required name="firstName"></label><label>Прізвище<input required name="lastName"></label></div><div class="checkout-grid"><label>Email<input required type="email" name="email"></label><label>Телефон<input required type="tel" name="phone"></label></div></div>
 <div class="checkout-section"><h2>Доставка</h2><div class="checkout-grid"><label>Місто<input required name="city"></label><label>Область<input name="region"></label></div><div class="checkout-grid"><label>Вулиця<input required name="street"></label><label>Поштовий індекс<input name="postal"></label></div><label>Спосіб доставки<select required name="delivery"><option value="">Оберіть спосіб</option><option>Нова пошта</option><option>Укрпошта</option><option>Кур'єр</option></select></label></div>
-<div class="checkout-section"><h2>Оплата</h2><div class="payment-note"><strong>Онлайн оплата карткою</strong><br>Платіжний сервіс буде підключено окремо.</div><button class="solid-button place-order" type="submit">Place order</button></div>
+<div class="checkout-section">
+<h2>Оплата</h2>
+<div class="payment-methods" role="radiogroup" aria-label="Спосіб оплати">
+  <button type="button" class="payment-method is-selected" data-payment="card" aria-pressed="true">
+    <span><strong>Банківська картка</strong><small>Visa / Mastercard</small></span><span class="payment-check">✓</span>
+  </button>
+  <button type="button" class="payment-method" data-payment="google" aria-pressed="false">
+    <span><strong>Google Pay</strong><small>Швидка оплата через Google Pay</small></span><span class="payment-check">✓</span>
+  </button>
+  <button type="button" class="payment-method" data-payment="apple" aria-pressed="false">
+    <span><strong>Apple Pay</strong><small>Швидка оплата через Apple Pay</small></span><span class="payment-check">✓</span>
+  </button>
+</div>
+<div class="payment-note" id="payment-status"><strong>Оплата карткою</strong><br>Після натискання Place order відкриється захищене вікно для даних картки.</div>
+<button class="solid-button place-order" type="submit">Place order</button>
+</div>
 </form>
+<div class="card-modal" id="card-modal" aria-hidden="true">
+  <div class="card-modal-backdrop" data-card-close></div>
+  <div class="card-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="card-modal-title">
+    <button type="button" class="card-modal-close" data-card-close aria-label="Закрити">×</button>
+    <p class="eyebrow">NEVRA / PAYMENT</p>
+    <h2 id="card-modal-title">Дані картки</h2>
+    <p class="card-modal-note">Введіть дані картки для підготовки платежу.</p>
+    <div class="card-fields">
+      <label>Номер картки<input id="card-number" inputmode="numeric" autocomplete="cc-number" maxlength="19" placeholder="0000 0000 0000 0000"></label>
+      <div class="checkout-grid">
+        <label>Термін дії<input id="card-expiry" inputmode="numeric" autocomplete="cc-exp" maxlength="5" placeholder="MM/YY"></label>
+        <label>CVV<input id="card-cvv" inputmode="numeric" autocomplete="cc-csc" maxlength="4" placeholder="•••"></label>
+      </div>
+      <label>Ім'я на картці<input id="card-name" autocomplete="cc-name" placeholder="CARDHOLDER NAME"></label>
+    </div>
+    <p class="card-error" id="card-error" role="alert"></p>
+    <button type="button" class="solid-button card-confirm" id="card-confirm">Підтвердити оплату</button>
+  </div>
+</div>
 <div class="checkout-success" id="success"><h2>Дякуємо за замовлення.</h2><p>Замовлення сформовано.</p><a class="solid-button" href="./index.html">Back to NEVRA</a></div>
 </section>
 <aside class="checkout-summary"><div class="summary-head"><p class="eyebrow">YOUR SELECTION</p><h2>Замовлення</h2></div><div id="summary-items" class="summary-items"></div><div class="summary-line"><span>Subtotal</span><strong id="subtotal">₴0</strong></div><div class="summary-line"><span>Delivery</span><strong>₴0</strong></div><div class="summary-line total"><span>Total</span><strong id="total">₴0</strong></div></aside>
@@ -121,16 +172,145 @@
   </div>
 </footer>
 
-<script src="./products.js" defer></script>
+<script src="./products.js"></script>
 <script>
-(()=>{const cart=JSON.parse(localStorage.getItem("nevra-cart")||"[]"),money=v=>"₴"+Number(v).toLocaleString("uk-UA");
-const productFor=i=>window.NEVRA_PRODUCT_API.get(i.productId);
-const image=i=>i.image||productFor(i)?.images?.[0]||"assets/shirt-black.jpg";
-const title=i=>i.title||productFor(i)?.name||"NEVRA Product";
-const sum=cart.reduce((t,i)=>t+i.qty*Number(i.price||productFor(i)?.price||0),0);
-document.querySelector("#summary-items").innerHTML=cart.length?cart.map(i=>'<article class="summary-item"><img src="'+image(i)+'" alt=""><div><strong>'+title(i)+'</strong><small>Size '+i.size+' · Quantity '+i.qty+'</small></div><strong>'+money(i.qty*Number(i.price||productFor(i)?.price||0))+'</strong></article>').join(""):'<p class="checkout-empty">Ваш кошик порожній.</p>';
-document.querySelector("#subtotal").textContent=money(sum);document.querySelector("#total").textContent=money(sum);
-document.querySelector("#checkout-form").addEventListener("submit",e=>{e.preventDefault();if(!cart.length){alert("Ваш кошик порожній.");return}const invalid=cart.find(i=>{const p=productFor(i);return !p||!window.NEVRA_PRODUCT_API.available(i.productId,i.size)||Number(i.qty||0)>window.NEVRA_PRODUCT_API.stock(i.productId,i.size)});if(invalid){alert("Один із товарів або його кількість більше недоступні. Поверніться до товару та оновіть кошик.");return}localStorage.removeItem("nevra-cart");document.querySelector("#checkout-form").style.display="none";document.querySelector("#success").classList.add("show")});
+(() => {
+  const $ = s => document.querySelector(s);
+  const money = v => '₴' + Number(v || 0).toLocaleString('uk-UA');
+  const key = 'nevra-cart';
+  const paymentMethods = [...document.querySelectorAll('.payment-method')];
+  let selectedPayment = 'card';
+
+  const legacyProduct = item => {
+    if (item.productId) return window.NEVRA_PRODUCT_API.get(item.productId);
+    if (item.type === 'hoodie') return window.NEVRA_PRODUCT_API.get('NEVRA-HOODIE-001');
+    if (item.type === 'tracksuit') return window.NEVRA_PRODUCT_API.get('NEVRA-TRACKSUIT-001');
+    if (item.color) return window.NEVRA_PRODUCT_API.byColor(item.color);
+    return null;
+  };
+
+  const cart = JSON.parse(localStorage.getItem(key) || '[]').map(item => {
+    const product = legacyProduct(item);
+    return product ? {
+      ...item,
+      productId: product.id,
+      title: product.name,
+      price: Number(item.price || product.price),
+      image: item.image || product.images[0]
+    } : item;
+  });
+
+  function renderSummary() {
+    const valid = cart.filter(item => legacyProduct(item));
+    const items = $('#summary-items');
+    items.innerHTML = valid.length ? valid.map(item => {
+      const product = legacyProduct(item);
+      const qty = Math.max(1, Number(item.qty || 1));
+      const src = item.image || product.images[0];
+      return `<article class="summary-item">
+        <img src="${src}" alt="${product.name}">
+        <div><strong>${product.name}</strong><small>ID ${product.id}<br>Size ${item.size || '—'} · Quantity ${qty}</small></div>
+        <strong>${money(qty * product.price)}</strong>
+      </article>`;
+    }).join('') : '<p class="checkout-empty">Ваш кошик порожній.</p>';
+
+    const total = valid.reduce((sum, item) => sum + Math.max(1, Number(item.qty || 1)) * legacyProduct(item).price, 0);
+    $('#subtotal').textContent = money(total);
+    $('#total').textContent = money(total);
+    localStorage.setItem(key, JSON.stringify(cart));
+    return { valid, total };
+  }
+
+  function selectPayment(method) {
+    selectedPayment = method;
+    paymentMethods.forEach(btn => {
+      const active = btn.dataset.payment === method;
+      btn.classList.toggle('is-selected', active);
+      btn.setAttribute('aria-pressed', String(active));
+    });
+    const status = $('#payment-status');
+    if (method === 'card') {
+      status.innerHTML = '<strong>Оплата карткою</strong><br>Після натискання Place order відкриється захищене вікно для даних картки.';
+    } else if (method === 'google') {
+      status.innerHTML = '<strong>Google Pay</strong><br>Інтеграція Google Pay готова для підключення платіжного провайдера.';
+    } else {
+      status.innerHTML = '<strong>Apple Pay</strong><br>Інтеграція Apple Pay готова для підключення платіжного провайдера.';
+    }
+  }
+
+  paymentMethods.forEach(btn => btn.addEventListener('click', () => selectPayment(btn.dataset.payment)));
+
+  const modal = $('#card-modal');
+  const openModal = () => {
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    $('#card-number').focus();
+  };
+  const closeModal = () => {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    $('#card-error').textContent = '';
+  };
+  document.querySelectorAll('[data-card-close]').forEach(el => el.addEventListener('click', closeModal));
+
+  $('#card-number').addEventListener('input', e => {
+    const digits = e.target.value.replace(/\D/g, '').slice(0,16);
+    e.target.value = digits.replace(/(.{4})/g, '$1 ').trim();
+  });
+  $('#card-expiry').addEventListener('input', e => {
+    const digits = e.target.value.replace(/\D/g, '').slice(0,4);
+    e.target.value = digits.length > 2 ? digits.slice(0,2) + '/' + digits.slice(2) : digits;
+  });
+  $('#card-cvv').addEventListener('input', e => { e.target.value = e.target.value.replace(/\D/g, '').slice(0,4); });
+
+  $('#card-confirm').addEventListener('click', () => {
+    const number = $('#card-number').value.replace(/\s/g, '');
+    const expiry = $('#card-expiry').value;
+    const cvv = $('#card-cvv').value;
+    const name = $('#card-name').value.trim();
+    const error = $('#card-error');
+    if (number.length < 13 || number.length > 16) return error.textContent = 'Введіть коректний номер картки.';
+    if (!/^\d{2}\/\d{2}$/.test(expiry)) return error.textContent = 'Введіть термін дії у форматі MM/YY.';
+    if (cvv.length < 3) return error.textContent = 'Введіть CVV.';
+    if (!name) return error.textContent = 'Введіть імʼя на картці.';
+    error.textContent = '';
+    closeModal();
+    completeOrder();
+  });
+
+  function completeOrder() {
+    const { valid } = renderSummary();
+    if (!valid.length) { alert('Ваш кошик порожній.'); return; }
+    const invalid = valid.find(item => {
+      const product = legacyProduct(item);
+      const qty = Number(item.qty || 0);
+      return !product || !window.NEVRA_PRODUCT_API.available(product.id, item.size) ||
+        qty > window.NEVRA_PRODUCT_API.stock(product.id, item.size);
+    });
+    if (invalid) {
+      alert('Один із товарів або його кількість більше недоступні. Поверніться до товару та оновіть кошик.');
+      return;
+    }
+    localStorage.removeItem(key);
+    $('#checkout-form').style.display = 'none';
+    $('#success').classList.add('show');
+  }
+
+  $('#checkout-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const { valid } = renderSummary();
+    if (!valid.length) { alert('Ваш кошик порожній.'); return; }
+    if (selectedPayment === 'card') {
+      openModal();
+      return;
+    }
+    completeOrder();
+  });
+
+  renderSummary();
+  selectPayment('card');
 })();
 </script>
 </body></html>
