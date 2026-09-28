@@ -34,6 +34,42 @@
   .returns-cta{display:inline-flex;align-items:center;justify-content:center;margin-top:30px;min-width:210px;padding:17px 28px;border:1px solid rgba(255,255,255,.78);color:#fff;text-decoration:none;font-size:13px;letter-spacing:.18em;text-transform:uppercase;transition:background .2s,color .2s}
   .returns-cta:hover{background:#fff;color:#050505}
   .returns-page .nevra-footer{background:#050505;color:#eee;border-top:1px solid rgba(255,255,255,.18)}
+  .returns-desktop-back{display:none;}
+  @media (min-width:901px){
+    .returns-desktop-back{display:inline-block;
+      position:absolute;
+      top:28px;
+      left:6.5%;
+      z-index:20;
+      color:#fff;
+      text-decoration:none;
+      font-size:11px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      padding:10px 0;
+    }
+    .returns-sections{
+      padding-top:22px;
+      padding-bottom:22px;
+    }
+    .returns-row{
+      margin-bottom:22px;
+      border-top:1px solid rgba(255,255,255,.22);
+      border-bottom:1px solid rgba(255,255,255,.22);
+    }
+    .returns-row:last-child{margin-bottom:0;}
+    .returns-visual{
+      filter:none;
+      background-position:center;
+      background-size:cover;
+      background-repeat:no-repeat;
+    }
+    .returns-visual-1{background-image:url('./assets/returns-01.png');}
+    .returns-visual-2{background-image:url('./assets/returns-02.png');}
+    .returns-visual-3{background-image:url('./assets/returns-03.png');}
+    .returns-visual-4{background-image:url('./assets/returns-04.png');}
+    .returns-visual-5{background-image:url('./assets/returns-05.png');}
+  }
   @media (max-width:900px){
     .returns-hero{height:520px;min-height:520px;background:#050505 url('./assets/returns-hero.png') center/cover no-repeat}
     .returns-hero img{position:absolute;inset:0;width:100%;height:100%;object-position:center center;object-fit:cover;display:block;opacity:1}
@@ -56,6 +92,7 @@
 </style>
 </head>
 <body class="returns-page">
+<a class="returns-desktop-back" href="./index.html" aria-label="Back to home">← BACK</a>
 <a class="mobile-page-back returns-mobile-back" href="./index.html" aria-label="Back to home">← BACK</a>
 <main>
   <section class="returns-hero">
@@ -72,27 +109,27 @@
     <article class="returns-row">
       <div class="returns-index"><strong>01</strong><span></span><small>Returns</small></div>
       <div class="returns-content"><h2>Returns</h2><p>You can return eligible items within 14 days of receiving your order. Items must be unused, unaltered, and in their original packaging with all tags attached.</p></div>
-      <div class="returns-visual"><div class="returns-icon">□</div></div>
+      <div class="returns-visual returns-visual-1" aria-hidden="true"></div>
     </article>
     <article class="returns-row">
       <div class="returns-index"><strong>02</strong><span></span><small>Refunds</small></div>
       <div class="returns-content"><h2>Refunds</h2><p>Once we receive and inspect your return, we will notify you about the status of your refund. If approved, the refund will be issued to your original payment method within 5–10 business days.</p></div>
-      <div class="returns-visual"><div class="returns-icon">○</div></div>
+      <div class="returns-visual returns-visual-2" aria-hidden="true"></div>
     </article>
     <article class="returns-row">
       <div class="returns-index"><strong>03</strong><span></span><small>Eligibility</small></div>
       <div class="returns-content"><h2>Eligibility</h2><ul class="returns-list"><li>Products must be in original condition</li><li>Not worn, washed, or damaged</li><li>All tags and packaging must be included</li><li>Sale items and limited drops may not be eligible</li></ul></div>
-      <div class="returns-visual"><div class="returns-icon">≡</div></div>
+      <div class="returns-visual returns-visual-3" aria-hidden="true"></div>
     </article>
     <article class="returns-row">
       <div class="returns-index"><strong>04</strong><span></span><small>How to return</small></div>
       <div class="returns-content"><h2>How to return</h2><ul class="returns-list"><li>Contact our support team with your order number.</li><li>Receive return instructions and address.</li><li>Pack the item securely.</li><li>Send the package using a tracked shipping method.</li></ul></div>
-      <div class="returns-visual"><div class="returns-icon">→</div></div>
+      <div class="returns-visual returns-visual-4" aria-hidden="true"></div>
     </article>
     <article class="returns-row">
       <div class="returns-index"><strong>05</strong><span></span><small>Contact</small></div>
       <div class="returns-content"><h2>Need help?</h2><p>If you have any questions about returns or refunds, our support team is ready to help.</p><a class="returns-cta" href="./contact.html">Contact Us</a></div>
-      <div class="returns-visual"><div class="returns-icon">✉</div></div>
+      <div class="returns-visual returns-visual-5" aria-hidden="true"></div>
     </article>
   </section>
 </main>
