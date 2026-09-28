@@ -28,6 +28,26 @@
       quantity: 50,
       inventory: stock(10)
     },
+    'NEVRA-COLLECTION-TSHIRT-001': {
+      id: 'NEVRA-COLLECTION-TSHIRT-001',
+      name: 'NEVRA Signature T-shirt',
+      price: 1500,
+      images: ['assets/collection-tshirt-1.png', 'assets/collection-tshirt-2.png', 'assets/collection-tshirt-3.png', 'assets/collection-tshirt-4.png', 'assets/collection-tshirt-5.png'],
+      sizes,
+      availability: true,
+      quantity: 50,
+      inventory: stock(10)
+    },
+    'NEVRA-COLLECTION-SWEATSHIRT-001': {
+      id: 'NEVRA-COLLECTION-SWEATSHIRT-001',
+      name: 'NEVRA Signature Sweatshirt',
+      price: 2400,
+      images: ['assets/collection-sweatshirt-1.png', 'assets/collection-sweatshirt-2.png', 'assets/collection-sweatshirt-3.png', 'assets/collection-sweatshirt-4.png', 'assets/collection-sweatshirt-5.png'],
+      sizes,
+      availability: true,
+      quantity: 50,
+      inventory: stock(10)
+    },
     'NEVRA-TSHIRT-BLK-001': {
       id: 'NEVRA-TSHIRT-BLK-001',
       name: 'Black T-shirt',
