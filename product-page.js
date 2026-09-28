@@ -83,6 +83,7 @@
 
     $('#detail-title').textContent = p.name;
     $('#current-color').textContent = value;
+    if ($('#product-id')) $('#product-id').textContent = 'ID — ' + p.id;
 
     const price = $('.product-detail-price');
     if (price) price.textContent = money(p.price);

@@ -10,7 +10,7 @@
     .product-page-main{background:var(--paper);color:var(--ink);padding:122px clamp(18px,5.5vw,80px) 70px;min-height:78vh}
     .product-detail{max-width:1200px;margin:auto;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);gap:55px;align-items:center}
     .product-gallery{background:#e7e7e8;overflow:hidden}.product-gallery img{width:100%;aspect-ratio:1/1;object-fit:contain}
-    .product-detail-info .eyebrow{color:#777a81}.product-detail-info h1{font:400 clamp(30px,4vw,50px)/1.1 var(--serif);margin:0 0 8px}.product-detail-price{font-size:16px;margin:0 0 18px}.product-detail-description{color:#666970;line-height:1.7;max-width:500px}
+    .product-detail-info .eyebrow{color:#777a81}.product-detail-info h1{font:400 clamp(30px,4vw,50px)/1.1 var(--serif);margin:0 0 8px}.product-detail-price{font-size:16px;margin:0 0 6px}.product-id{display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#888b91;margin:0 0 18px}.product-detail-description{color:#666970;line-height:1.7;max-width:500px}
     .product-control-label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#666970;margin:20px 0 8px}
     .product-color-options,.product-size-options{display:flex;gap:8px;flex-wrap:wrap}.product-color-option,.product-size-option{min-width:48px;height:38px;border:1px solid #c6c7ca;background:transparent;color:var(--ink)}.product-size-option:disabled{opacity:.35;cursor:not-allowed;text-decoration:line-through}.quantity-control button:disabled{opacity:.35;cursor:not-allowed}.product-color-option[aria-pressed=true],.product-size-option[aria-pressed=true]{background:var(--ink);color:white;border-color:var(--ink)}
     .quantity-control{display:inline-grid;grid-template-columns:38px 48px 38px;border:1px solid #c6c7ca}.quantity-control button,.quantity-control output{height:38px;border:0;background:transparent;display:grid;place-items:center;color:var(--ink)}.quantity-control button{cursor:pointer}
@@ -32,6 +32,7 @@
         <p class="eyebrow">NEVRA / CORE COLLECTION</p>
         <h1 id="detail-title">Black T-shirt</h1>
         <p class="product-detail-price">₴1,200</p>
+        <span class="product-id" id="product-id">ID — NEVRA-TSHIRT-BLK-001</span>
         <p class="product-detail-description">A considered everyday essential. Clean lines, restrained branding, and a focus on identity.</p>
         <span class="product-control-label">Color — <span id="current-color">Black</span></span>
         <div class="product-color-options">

@@ -612,3 +612,6 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:22px;fl
     z-index:60;
   }
 }
+
+/* Product ID display */
+.product-id{display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#888b91;margin:0 0 18px}.hoodie-product-id{margin:-10px 0 18px}.product-detail-info .product-id{line-height:1.4}@media(max-width:768px){.product-id{font-size:9px;letter-spacing:.1em;margin-bottom:15px}.hoodie-product-id{margin:-7px 0 16px}}
