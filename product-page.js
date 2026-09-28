@@ -209,7 +209,7 @@
     openCart();
   });
 
-  $('#cart-open').addEventListener('click', openCart);
+  $('#cart-open').addEventListener('click', (e) => { e.preventDefault(); openCart(); });
   $('#cart-close').addEventListener('click', closeCart);
   $('#cart-backdrop').addEventListener('click', closeCart);
   document.addEventListener('keydown', event => {

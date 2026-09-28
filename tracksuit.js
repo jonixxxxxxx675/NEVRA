@@ -56,9 +56,23 @@
     if (existing) existing.qty += 1;
     else cart.push({ productId: product.id, title: product.name, size, qty: 1, price: product.price, image: product.images[0] });
     render();
-    location.href = 'checkout.html';
+    openCart();
   });
 
-  $('#cart-open').addEventListener('click', () => { location.href = 'checkout.html'; });
+  function openCart(){
+    const panel = document.querySelector('#cart-panel');
+    const backdrop = document.querySelector('#cart-backdrop');
+    if(panel){ panel.classList.add('is-open'); panel.setAttribute('aria-hidden','false'); }
+    if(backdrop){ backdrop.hidden = false; }
+    document.body.classList.add('cart-open');
+  }
+  function closeCart(){
+    const panel = document.querySelector('#cart-panel');
+    const backdrop = document.querySelector('#cart-backdrop');
+    if(panel){ panel.classList.remove('is-open'); panel.setAttribute('aria-hidden','true'); }
+    if(backdrop){ backdrop.hidden = true; }
+    document.body.classList.remove('cart-open');
+  }
+  $('#cart-open').addEventListener('click', (e) => { e.preventDefault(); openCart(); });
   render();
 })();
