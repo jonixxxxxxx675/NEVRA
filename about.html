@@ -27,8 +27,9 @@
       .about-page .about-visual img{filter:brightness(.84);}
     }
   </style>
-
-
+  <style>
+    .about-mobile-back{display:none;}
+  </style>
 
 <style id="about-new-desktop">
 .about-page .about-mobile-new{display:none;}
@@ -94,22 +95,14 @@
 .an-values-row span{font-size:8px;line-height:1.45;letter-spacing:.1em;color:#b8b9bd}
 @media(max-width:700px){
   /* Mobile-only About adjustments. Desktop remains untouched. */
-  .about-page .main-nav{transform:none;}
-  .about-page .main-nav a{display:none;}
-  .about-page .main-nav .mobile-back{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    color:#fff;
-    text-decoration:none;
-    font-size:9px;
-    letter-spacing:.16em;
-  }
+  .about-page .main-nav{display:none !important;}
+  .about-page .about-mobile-back{display:inline-block !important;justify-self:start;margin-left:8px;font-size:9px;letter-spacing:.16em;color:#fff;white-space:nowrap;}
+  .about-page .main-nav a[href="./about.html"]{display:none;}
   .an-hero{height:500px;min-height:0}
   .an-hero>img{height:100%;object-fit:cover;object-position:center center}
   .an-hero:after{background:linear-gradient(90deg,rgba(0,0,0,.58),rgba(0,0,0,.04) 78%)}
-  .an-hero-copy{left:6%;top:65%;max-width:44%;}
-  .an-hero-copy h1{font-size:clamp(30px,7vw,42px)}
+  .an-hero-copy{left:7%;top:68%;max-width:44%;}
+  .an-hero-copy h1{font-size:clamp(30px,7.2vw,44px)}
   .an-hero-copy p{font-size:9px;letter-spacing:.14em}
   .an-story{margin-top:20px;}
   .an-split{grid-template-columns:1fr 1fr;min-height:0}
@@ -143,8 +136,9 @@
   <header class="site-header">
     <a class="wordmark" href="./index.html" aria-label="NEVRA home">NEVRA</a>
     <nav class="main-nav" aria-label="Main navigation">
-      <a class="mobile-back" href="./index.html">← BACK</a><a href="./index.html#shop">Shop</a><a href="./about.html" aria-current="page">About</a><a href="./journal.html">Journal</a><a href="./index.html#contact">Contact</a>
+      <a href="./index.html#shop">Shop</a><a href="./about.html" aria-current="page">About</a><a href="./journal.html">Journal</a><a href="./index.html#contact">Contact</a>
     </nav>
+    <a class="about-mobile-back" href="./index.html" aria-label="Back to home">← BACK</a>
     <a class="cart-trigger" href="./index.html#shop" aria-label="Return to shop"><span class="bag-icon" aria-hidden="true"></span><span class="bag-label">Shop</span></a>
   </header>
   <main class="about-new-page">
