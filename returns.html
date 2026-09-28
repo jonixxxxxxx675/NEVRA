@@ -35,8 +35,8 @@
   .returns-cta:hover{background:#fff;color:#050505}
   .returns-page .nevra-footer{background:#050505;color:#eee;border-top:1px solid rgba(255,255,255,.18)}
   @media (max-width:900px){
-    .returns-hero{height:100svh;min-height:620px}
-    .returns-hero img{object-position:center center}
+    .returns-hero{height:520px;min-height:520px;background:#050505 url('./assets/returns-hero.png') center/cover no-repeat}
+    .returns-hero img{position:absolute;inset:0;width:100%;height:100%;object-position:center center;object-fit:cover;display:block;opacity:1}
     .returns-hero-copy{left:7%;right:7%;bottom:9%;max-width:none}
     .returns-kicker{font-size:10px;letter-spacing:.25em;margin-bottom:18px}
     .returns-hero h1{font-size:56px;line-height:.94;margin-bottom:22px}
@@ -56,6 +56,7 @@
 </style>
 </head>
 <body class="returns-page">
+<a class="mobile-page-back returns-mobile-back" href="./index.html" aria-label="Back to home">← BACK</a>
 <main>
   <section class="returns-hero">
     <img src="./assets/returns-hero.png" alt="NEVRA Return and Refunds">

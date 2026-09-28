@@ -592,15 +592,15 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:22px;fl
   }
 }
 
-/* MOBILE ONLY — inner pages use Back instead of the menu. Desktop unchanged. */
+/* MOBILE ONLY — every inner page uses Back instead of the top menu. Desktop unchanged. */
 .mobile-page-back{display:none;}
 @media (max-width:768px){
-  body.contact-page .site-header .main-nav,
-  body.tracking-page .site-header .main-nav,
-  body.journal-page .site-header .main-nav{display:none !important;}
-  body.contact-page .site-header .mobile-page-back,
-  body.tracking-page .site-header .mobile-page-back,
-  body.journal-page .site-header .mobile-page-back{
+  .returns-mobile-back{position:absolute !important;top:18px;left:18px;z-index:100 !important;padding:10px 12px;border:1px solid rgba(255,255,255,.55);background:rgba(5,5,5,.45);}
+  body:not(:has(#home)) .site-header .main-nav,
+  body:not(:has(#home)) .main-nav{display:none !important;}
+  body:not(:has(#home)) .site-header .mobile-page-back,
+  body:not(:has(#home)) > .mobile-page-back,
+  body:not(:has(#home)) .mobile-page-back{
     display:inline-block !important;
     color:#fff;
     font-size:9px;
@@ -608,5 +608,7 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:22px;fl
     letter-spacing:.16em;
     white-space:nowrap;
     text-transform:uppercase;
+    position:relative;
+    z-index:60;
   }
 }
